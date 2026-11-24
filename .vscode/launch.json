@@ -1,0 +1,46 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "es-soundtrack-tool (GUI)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "es_ost.gui.app",
+      "cwd": "${workspaceFolder}",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "es-ost-prep: build",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "es_ost.prep.build_dataset",
+      "cwd": "${workspaceFolder}",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+      },
+      "args": ["build", "--data-dir", "data", "--rank-dir", "rank", "--verify-login"],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "es-ost-prep: merge-rankings",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "es_ost.prep.build_dataset",
+      "cwd": "${workspaceFolder}",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+      },
+      "args": ["merge-rankings", "--data-dir", "data", "--rankings", "rank/rankings.json"],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    }
+  ]
+}

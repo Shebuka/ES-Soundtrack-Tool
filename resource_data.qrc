@@ -1,0 +1,17 @@
+<!DOCTYPE RCC>
+<!--
+  Embeds the root .env into the Qt resource system at build time so a packaged
+  build can read it via src/es_ost/core/env_loader.py. The real .env is
+  git-ignored and injected from a CI secret at build time.
+
+    pyside6-rcc resource_data.qrc -o src/es_ost/gui/rc_data.py
+
+  The generated src/es_ost/gui/rc_data.py is itself git-ignored. The frozen
+  data/ directory and ffmpeg binary are bundled as filesystem assets via
+  pysidedeploy.spec, not here.
+-->
+<RCC version="1.0">
+  <qresource prefix="/data">
+    <file alias=".env">.env</file>
+  </qresource>
+</RCC>
