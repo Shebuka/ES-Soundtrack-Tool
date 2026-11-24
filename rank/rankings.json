@@ -1,0 +1,904 @@
+[
+  {
+    "rttid": "4643",
+    "llm_score": 86.0,
+    "rank": 1,
+    "reason": "Ryu's Theme is the game's main theme; Guile's and Ken's follow it, and the arcade rips of all three are listed separately."
+  },
+  {
+    "rttid": "4634",
+    "llm_score": 84.0,
+    "rank": 2
+  },
+  {
+    "rttid": "4637",
+    "llm_score": 82.0,
+    "rank": 3
+  },
+  {
+    "rttid": "28931",
+    "llm_score": 78.0,
+    "rank": 4
+  },
+  {
+    "rttid": "4626",
+    "llm_score": 76.0,
+    "rank": 5
+  },
+  {
+    "rttid": "28945",
+    "llm_score": 76.0,
+    "rank": 6
+  },
+  {
+    "rttid": "28947",
+    "llm_score": 76.0,
+    "rank": 7
+  },
+  {
+    "rttid": "4638",
+    "llm_score": 74.0,
+    "rank": 8
+  },
+  {
+    "rttid": "4618",
+    "llm_score": 70.0,
+    "rank": 9
+  },
+  {
+    "rttid": "4620",
+    "llm_score": 70.0,
+    "rank": 10
+  },
+  {
+    "rttid": "4647",
+    "llm_score": 70.0,
+    "rank": 11
+  },
+  {
+    "rttid": "28938",
+    "llm_score": 70.0,
+    "rank": 12
+  },
+  {
+    "rttid": "4644",
+    "llm_score": 68.0,
+    "rank": 13
+  },
+  {
+    "rttid": "4650",
+    "llm_score": 68.0,
+    "rank": 14
+  },
+  {
+    "rttid": "28907",
+    "llm_score": 68.0,
+    "rank": 15
+  },
+  {
+    "rttid": "28909",
+    "llm_score": 68.0,
+    "rank": 16
+  },
+  {
+    "rttid": "28935",
+    "llm_score": 68.0,
+    "rank": 17
+  },
+  {
+    "rttid": "28940",
+    "llm_score": 66.0,
+    "rank": 18
+  },
+  {
+    "rttid": "28943",
+    "llm_score": 66.0,
+    "rank": 19
+  },
+  {
+    "rttid": "4629",
+    "llm_score": 64.0,
+    "rank": 20
+  },
+  {
+    "rttid": "4631",
+    "llm_score": 64.0,
+    "rank": 21
+  },
+  {
+    "rttid": "28929",
+    "llm_score": 64.0,
+    "rank": 22
+  },
+  {
+    "rttid": "28949",
+    "llm_score": 64.0,
+    "rank": 23
+  },
+  {
+    "rttid": "28927",
+    "llm_score": 62.0,
+    "rank": 24
+  },
+  {
+    "rttid": "4645",
+    "llm_score": 55.0,
+    "rank": 25
+  },
+  {
+    "rttid": "4640",
+    "llm_score": 50.0,
+    "rank": 26
+  },
+  {
+    "rttid": "4621",
+    "llm_score": 45.0,
+    "rank": 27
+  },
+  {
+    "rttid": "4636",
+    "llm_score": 45.0,
+    "rank": 28
+  },
+  {
+    "rttid": "28933",
+    "llm_score": 44.0,
+    "rank": 29
+  },
+  {
+    "rttid": "4622",
+    "llm_score": 40.0,
+    "rank": 30
+  },
+  {
+    "rttid": "4625",
+    "llm_score": 40.0,
+    "rank": 31
+  },
+  {
+    "rttid": "4633",
+    "llm_score": 40.0,
+    "rank": 32
+  },
+  {
+    "rttid": "4642",
+    "llm_score": 40.0,
+    "rank": 33
+  },
+  {
+    "rttid": "28919",
+    "llm_score": 40.0,
+    "rank": 34
+  },
+  {
+    "rttid": "28928",
+    "llm_score": 40.0,
+    "rank": 35
+  },
+  {
+    "rttid": "28936",
+    "llm_score": 40.0,
+    "rank": 36
+  },
+  {
+    "rttid": "28939",
+    "llm_score": 40.0,
+    "rank": 37
+  },
+  {
+    "rttid": "4630",
+    "llm_score": 38.0,
+    "rank": 38
+  },
+  {
+    "rttid": "28916",
+    "llm_score": 38.0,
+    "rank": 39
+  },
+  {
+    "rttid": "28922",
+    "llm_score": 38.0,
+    "rank": 40
+  },
+  {
+    "rttid": "28946",
+    "llm_score": 38.0,
+    "rank": 41
+  },
+  {
+    "rttid": "28948",
+    "llm_score": 38.0,
+    "rank": 42
+  },
+  {
+    "rttid": "28906",
+    "llm_score": 36.0,
+    "rank": 43
+  },
+  {
+    "rttid": "28908",
+    "llm_score": 36.0,
+    "rank": 44
+  },
+  {
+    "rttid": "28910",
+    "llm_score": 36.0,
+    "rank": 45
+  },
+  {
+    "rttid": "28920",
+    "llm_score": 36.0,
+    "rank": 46
+  },
+  {
+    "rttid": "28923",
+    "llm_score": 36.0,
+    "rank": 47
+  },
+  {
+    "rttid": "28930",
+    "llm_score": 36.0,
+    "rank": 48
+  },
+  {
+    "rttid": "4619",
+    "llm_score": 35.0,
+    "rank": 49
+  },
+  {
+    "rttid": "4649",
+    "llm_score": 35.0,
+    "rank": 50
+  },
+  {
+    "rttid": "28914",
+    "llm_score": 34.0,
+    "rank": 51
+  },
+  {
+    "rttid": "28918",
+    "llm_score": 34.0,
+    "rank": 52
+  },
+  {
+    "rttid": "28932",
+    "llm_score": 34.0,
+    "rank": 53
+  },
+  {
+    "rttid": "28944",
+    "llm_score": 34.0,
+    "rank": 54
+  },
+  {
+    "rttid": "4628",
+    "llm_score": 32.0,
+    "rank": 55
+  },
+  {
+    "rttid": "28917",
+    "llm_score": 32.0,
+    "rank": 56
+  },
+  {
+    "rttid": "28941",
+    "llm_score": 32.0,
+    "rank": 57
+  },
+  {
+    "rttid": "28950",
+    "llm_score": 32.0,
+    "rank": 58
+  },
+  {
+    "rttid": "4617",
+    "llm_score": 5.0,
+    "rank": 59
+  },
+  {
+    "rttid": "4623",
+    "llm_score": 5.0,
+    "rank": 60
+  },
+  {
+    "rttid": "4624",
+    "llm_score": 5.0,
+    "rank": 61
+  },
+  {
+    "rttid": "4627",
+    "llm_score": 5.0,
+    "rank": 62
+  },
+  {
+    "rttid": "4632",
+    "llm_score": 5.0,
+    "rank": 63
+  },
+  {
+    "rttid": "4635",
+    "llm_score": 5.0,
+    "rank": 64
+  },
+  {
+    "rttid": "4639",
+    "llm_score": 5.0,
+    "rank": 65
+  },
+  {
+    "rttid": "4641",
+    "llm_score": 5.0,
+    "rank": 66
+  },
+  {
+    "rttid": "4646",
+    "llm_score": 5.0,
+    "rank": 67
+  },
+  {
+    "rttid": "4648",
+    "llm_score": 5.0,
+    "rank": 68
+  },
+  {
+    "rttid": "28911",
+    "llm_score": 5.0,
+    "rank": 69
+  },
+  {
+    "rttid": "28912",
+    "llm_score": 5.0,
+    "rank": 70
+  },
+  {
+    "rttid": "28913",
+    "llm_score": 5.0,
+    "rank": 71
+  },
+  {
+    "rttid": "28915",
+    "llm_score": 5.0,
+    "rank": 72
+  },
+  {
+    "rttid": "28921",
+    "llm_score": 5.0,
+    "rank": 73
+  },
+  {
+    "rttid": "28924",
+    "llm_score": 5.0,
+    "rank": 74
+  },
+  {
+    "rttid": "28925",
+    "llm_score": 5.0,
+    "rank": 75
+  },
+  {
+    "rttid": "28926",
+    "llm_score": 5.0,
+    "rank": 76
+  },
+  {
+    "rttid": "28934",
+    "llm_score": 5.0,
+    "rank": 77
+  },
+  {
+    "rttid": "28937",
+    "llm_score": 5.0,
+    "rank": 78
+  },
+  {
+    "rttid": "28942",
+    "llm_score": 5.0,
+    "rank": 79
+  },
+  {
+    "rttid": "28951",
+    "llm_score": 5.0,
+    "rank": 80
+  },
+  {
+    "rttid": "28952",
+    "llm_score": 5.0,
+    "rank": 81
+  },
+  {
+    "rttid": "30545",
+    "llm_score": 78.0,
+    "rank": 1,
+    "reason": "Theme (Remix) is the game's main theme; Trinsic Theme and the Introduction reworks are the other named cues."
+  },
+  {
+    "rttid": "30548",
+    "llm_score": 72.0,
+    "rank": 2
+  },
+  {
+    "rttid": "30474",
+    "llm_score": 68.0,
+    "rank": 3
+  },
+  {
+    "rttid": "30508",
+    "llm_score": 68.0,
+    "rank": 4
+  },
+  {
+    "rttid": "30542",
+    "llm_score": 68.0,
+    "rank": 5
+  },
+  {
+    "rttid": "30507",
+    "llm_score": 66.0,
+    "rank": 6
+  },
+  {
+    "rttid": "30544",
+    "llm_score": 64.0,
+    "rank": 7
+  },
+  {
+    "rttid": "30477",
+    "llm_score": 62.0,
+    "rank": 8
+  },
+  {
+    "rttid": "30484",
+    "llm_score": 62.0,
+    "rank": 9
+  },
+  {
+    "rttid": "30460",
+    "llm_score": 60.0,
+    "rank": 10
+  },
+  {
+    "rttid": "30478",
+    "llm_score": 60.0,
+    "rank": 11
+  },
+  {
+    "rttid": "30506",
+    "llm_score": 60.0,
+    "rank": 12
+  },
+  {
+    "rttid": "30550",
+    "llm_score": 60.0,
+    "rank": 13
+  },
+  {
+    "rttid": "30483",
+    "llm_score": 58.0,
+    "rank": 14
+  },
+  {
+    "rttid": "30509",
+    "llm_score": 58.0,
+    "rank": 15
+  },
+  {
+    "rttid": "30539",
+    "llm_score": 58.0,
+    "rank": 16
+  },
+  {
+    "rttid": "30471",
+    "llm_score": 56.0,
+    "rank": 17
+  },
+  {
+    "rttid": "30493",
+    "llm_score": 56.0,
+    "rank": 18
+  },
+  {
+    "rttid": "30549",
+    "llm_score": 56.0,
+    "rank": 19
+  },
+  {
+    "rttid": "30498",
+    "llm_score": 54.0,
+    "rank": 20
+  },
+  {
+    "rttid": "30523",
+    "llm_score": 54.0,
+    "rank": 21
+  },
+  {
+    "rttid": "30528",
+    "llm_score": 54.0,
+    "rank": 22
+  },
+  {
+    "rttid": "30534",
+    "llm_score": 54.0,
+    "rank": 23
+  },
+  {
+    "rttid": "30459",
+    "llm_score": 52.0,
+    "rank": 24
+  },
+  {
+    "rttid": "30504",
+    "llm_score": 52.0,
+    "rank": 25
+  },
+  {
+    "rttid": "30510",
+    "llm_score": 52.0,
+    "rank": 26
+  },
+  {
+    "rttid": "30541",
+    "llm_score": 52.0,
+    "rank": 27
+  },
+  {
+    "rttid": "30458",
+    "llm_score": 50.0,
+    "rank": 28
+  },
+  {
+    "rttid": "30491",
+    "llm_score": 50.0,
+    "rank": 29
+  },
+  {
+    "rttid": "30522",
+    "llm_score": 50.0,
+    "rank": 30
+  },
+  {
+    "rttid": "30538",
+    "llm_score": 50.0,
+    "rank": 31
+  },
+  {
+    "rttid": "30457",
+    "llm_score": 48.0,
+    "rank": 32
+  },
+  {
+    "rttid": "30465",
+    "llm_score": 48.0,
+    "rank": 33
+  },
+  {
+    "rttid": "30486",
+    "llm_score": 48.0,
+    "rank": 34
+  },
+  {
+    "rttid": "30492",
+    "llm_score": 48.0,
+    "rank": 35
+  },
+  {
+    "rttid": "30503",
+    "llm_score": 48.0,
+    "rank": 36
+  },
+  {
+    "rttid": "30516",
+    "llm_score": 48.0,
+    "rank": 37
+  },
+  {
+    "rttid": "30526",
+    "llm_score": 48.0,
+    "rank": 38
+  },
+  {
+    "rttid": "30454",
+    "llm_score": 46.0,
+    "rank": 39
+  },
+  {
+    "rttid": "30456",
+    "llm_score": 46.0,
+    "rank": 40
+  },
+  {
+    "rttid": "30475",
+    "llm_score": 46.0,
+    "rank": 41
+  },
+  {
+    "rttid": "30479",
+    "llm_score": 46.0,
+    "rank": 42
+  },
+  {
+    "rttid": "30490",
+    "llm_score": 46.0,
+    "rank": 43
+  },
+  {
+    "rttid": "30502",
+    "llm_score": 46.0,
+    "rank": 44
+  },
+  {
+    "rttid": "30505",
+    "llm_score": 46.0,
+    "rank": 45
+  },
+  {
+    "rttid": "30511",
+    "llm_score": 46.0,
+    "rank": 46
+  },
+  {
+    "rttid": "30519",
+    "llm_score": 46.0,
+    "rank": 47
+  },
+  {
+    "rttid": "30521",
+    "llm_score": 46.0,
+    "rank": 48
+  },
+  {
+    "rttid": "30536",
+    "llm_score": 46.0,
+    "rank": 49
+  },
+  {
+    "rttid": "30543",
+    "llm_score": 46.0,
+    "rank": 50
+  },
+  {
+    "rttid": "30453",
+    "llm_score": 44.0,
+    "rank": 51
+  },
+  {
+    "rttid": "30455",
+    "llm_score": 44.0,
+    "rank": 52
+  },
+  {
+    "rttid": "30469",
+    "llm_score": 44.0,
+    "rank": 53
+  },
+  {
+    "rttid": "30476",
+    "llm_score": 44.0,
+    "rank": 54
+  },
+  {
+    "rttid": "30488",
+    "llm_score": 44.0,
+    "rank": 55
+  },
+  {
+    "rttid": "30499",
+    "llm_score": 44.0,
+    "rank": 56
+  },
+  {
+    "rttid": "30500",
+    "llm_score": 44.0,
+    "rank": 57
+  },
+  {
+    "rttid": "30513",
+    "llm_score": 44.0,
+    "rank": 58
+  },
+  {
+    "rttid": "30515",
+    "llm_score": 44.0,
+    "rank": 59
+  },
+  {
+    "rttid": "30525",
+    "llm_score": 44.0,
+    "rank": 60
+  },
+  {
+    "rttid": "30531",
+    "llm_score": 44.0,
+    "rank": 61
+  },
+  {
+    "rttid": "30532",
+    "llm_score": 44.0,
+    "rank": 62
+  },
+  {
+    "rttid": "30535",
+    "llm_score": 44.0,
+    "rank": 63
+  },
+  {
+    "rttid": "30540",
+    "llm_score": 44.0,
+    "rank": 64
+  },
+  {
+    "rttid": "30547",
+    "llm_score": 44.0,
+    "rank": 65
+  },
+  {
+    "rttid": "30467",
+    "llm_score": 42.0,
+    "rank": 66
+  },
+  {
+    "rttid": "30472",
+    "llm_score": 42.0,
+    "rank": 67
+  },
+  {
+    "rttid": "30480",
+    "llm_score": 42.0,
+    "rank": 68
+  },
+  {
+    "rttid": "30487",
+    "llm_score": 42.0,
+    "rank": 69
+  },
+  {
+    "rttid": "30495",
+    "llm_score": 42.0,
+    "rank": 70
+  },
+  {
+    "rttid": "30501",
+    "llm_score": 42.0,
+    "rank": 71
+  },
+  {
+    "rttid": "30512",
+    "llm_score": 42.0,
+    "rank": 72
+  },
+  {
+    "rttid": "30518",
+    "llm_score": 42.0,
+    "rank": 73
+  },
+  {
+    "rttid": "30530",
+    "llm_score": 42.0,
+    "rank": 74
+  },
+  {
+    "rttid": "30551",
+    "llm_score": 42.0,
+    "rank": 75
+  },
+  {
+    "rttid": "30464",
+    "llm_score": 40.0,
+    "rank": 76
+  },
+  {
+    "rttid": "30466",
+    "llm_score": 40.0,
+    "rank": 77
+  },
+  {
+    "rttid": "30468",
+    "llm_score": 40.0,
+    "rank": 78
+  },
+  {
+    "rttid": "30473",
+    "llm_score": 40.0,
+    "rank": 79
+  },
+  {
+    "rttid": "30489",
+    "llm_score": 40.0,
+    "rank": 80
+  },
+  {
+    "rttid": "30514",
+    "llm_score": 40.0,
+    "rank": 81
+  },
+  {
+    "rttid": "30517",
+    "llm_score": 40.0,
+    "rank": 82
+  },
+  {
+    "rttid": "30520",
+    "llm_score": 40.0,
+    "rank": 83
+  },
+  {
+    "rttid": "30529",
+    "llm_score": 40.0,
+    "rank": 84
+  },
+  {
+    "rttid": "30533",
+    "llm_score": 40.0,
+    "rank": 85
+  },
+  {
+    "rttid": "30537",
+    "llm_score": 40.0,
+    "rank": 86
+  },
+  {
+    "rttid": "30470",
+    "llm_score": 38.0,
+    "rank": 87
+  },
+  {
+    "rttid": "30485",
+    "llm_score": 38.0,
+    "rank": 88
+  },
+  {
+    "rttid": "30497",
+    "llm_score": 38.0,
+    "rank": 89
+  },
+  {
+    "rttid": "30482",
+    "llm_score": 36.0,
+    "rank": 90
+  },
+  {
+    "rttid": "30527",
+    "llm_score": 36.0,
+    "rank": 91
+  },
+  {
+    "rttid": "30546",
+    "llm_score": 36.0,
+    "rank": 92
+  },
+  {
+    "rttid": "30461",
+    "llm_score": 34.0,
+    "rank": 93
+  },
+  {
+    "rttid": "30481",
+    "llm_score": 34.0,
+    "rank": 94
+  },
+  {
+    "rttid": "30494",
+    "llm_score": 34.0,
+    "rank": 95
+  },
+  {
+    "rttid": "30463",
+    "llm_score": 32.0,
+    "rank": 96
+  },
+  {
+    "rttid": "30462",
+    "llm_score": 30.0,
+    "rank": 97
+  },
+  {
+    "rttid": "30496",
+    "llm_score": 30.0,
+    "rank": 98
+  },
+  {
+    "rttid": "30524",
+    "llm_score": 30.0,
+    "rank": 99
+  }
+]

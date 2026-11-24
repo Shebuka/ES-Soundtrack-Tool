@@ -1,0 +1,2346 @@
+[
+  {
+    "theme_name": "3do",
+    "rom_folder": "3do",
+    "screenscraper_id": 29,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "3ds",
+    "rom_folder": "3ds",
+    "screenscraper_id": 17,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "3ds-jp_spirit",
+    "rom_folder": "3ds-jp_spirit",
+    "screenscraper_id": 17,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "3ds_spirit",
+    "rom_folder": "3ds_spirit",
+    "screenscraper_id": 17,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "3dsen",
+    "rom_folder": "3dsen",
+    "screenscraper_id": 3,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "actionmax",
+    "rom_folder": "actionmax",
+    "screenscraper_id": 81,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "adam",
+    "rom_folder": "adam",
+    "screenscraper_id": 89,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "adrenaline",
+    "rom_folder": "adrenaline",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "adrenaline_batocera",
+    "rom_folder": "adrenaline_batocera",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "advision",
+    "rom_folder": "advision",
+    "screenscraper_id": 78,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "aleck64",
+    "rom_folder": "aleck64",
+    "screenscraper_id": 149,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "alice32",
+    "rom_folder": "alice32",
+    "screenscraper_id": 311,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "amiga",
+    "rom_folder": "amiga",
+    "screenscraper_id": 64,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "amiga1200_ransom",
+    "rom_folder": "amiga1200_ransom",
+    "screenscraper_id": 64,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "amiga3000",
+    "rom_folder": "amiga3000",
+    "screenscraper_id": 111,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "amiga4000",
+    "rom_folder": "amiga4000",
+    "screenscraper_id": 111,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "amiga4000_spirit",
+    "rom_folder": "amiga4000_spirit",
+    "screenscraper_id": 64,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "amiga500",
+    "rom_folder": "amiga500",
+    "screenscraper_id": 64,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "amiga600",
+    "rom_folder": "amiga600",
+    "screenscraper_id": 64,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "amigacd32",
+    "rom_folder": "amigacd32",
+    "screenscraper_id": 130,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "amigacdtv",
+    "rom_folder": "amigacdtv",
+    "screenscraper_id": 129,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "amstradcpc",
+    "rom_folder": "amstradcpc",
+    "screenscraper_id": 65,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "android",
+    "rom_folder": "android",
+    "screenscraper_id": 63,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "apple2",
+    "rom_folder": "apple2",
+    "screenscraper_id": 86,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "apple2gs",
+    "rom_folder": "apple2gs",
+    "screenscraper_id": 217,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "aquarius",
+    "rom_folder": "aquarius",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "arcade",
+    "rom_folder": "arcade",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "arcadepc",
+    "rom_folder": "arcadepc",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "arcadepc_batocera",
+    "rom_folder": "arcadepc_batocera",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "atari2600",
+    "rom_folder": "atari2600",
+    "screenscraper_id": 26,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "atari5200",
+    "rom_folder": "atari5200",
+    "screenscraper_id": 40,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "atari7800",
+    "rom_folder": "atari7800",
+    "screenscraper_id": 41,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "atarijaguar",
+    "rom_folder": "atarijaguar",
+    "screenscraper_id": 27,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "atarilynx",
+    "rom_folder": "atarilynx",
+    "screenscraper_id": 28,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "atarist",
+    "rom_folder": "atarist",
+    "screenscraper_id": 42,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "atomiswave",
+    "rom_folder": "atomiswave",
+    "screenscraper_id": 53,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "bk",
+    "rom_folder": "bk",
+    "screenscraper_id": 93,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "c16",
+    "rom_folder": "c16",
+    "screenscraper_id": 73,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "c20",
+    "rom_folder": "c20",
+    "screenscraper_id": 73,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "c64",
+    "rom_folder": "c64",
+    "screenscraper_id": 66,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "c64gs",
+    "rom_folder": "c64gs",
+    "screenscraper_id": 66,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "camplynx",
+    "rom_folder": "camplynx",
+    "screenscraper_id": 88,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "cassettevision",
+    "rom_folder": "cassettevision",
+    "screenscraper_id": 300,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "cave3rd",
+    "rom_folder": "cave3rd",
+    "screenscraper_id": 47,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "cdi",
+    "rom_folder": "cdi",
+    "screenscraper_id": 78,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "cgenie",
+    "rom_folder": "cgenie",
+    "screenscraper_id": 92,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "chihiro",
+    "rom_folder": "chihiro",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "chihiro_batocera",
+    "rom_folder": "chihiro_batocera",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "coco",
+    "rom_folder": "coco",
+    "screenscraper_id": 144,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "coleco",
+    "rom_folder": "coleco",
+    "screenscraper_id": 48,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "colecovision",
+    "rom_folder": "colecovision",
+    "screenscraper_id": 48,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "commodore128",
+    "rom_folder": "commodore128",
+    "screenscraper_id": 15,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "commodore64",
+    "rom_folder": "commodore64",
+    "screenscraper_id": 66,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "cpc464p",
+    "rom_folder": "cpc464p",
+    "screenscraper_id": 65,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "cps1",
+    "rom_folder": "cps1",
+    "screenscraper_id": 6,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "cps2",
+    "rom_folder": "cps2",
+    "screenscraper_id": 7,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "cps3",
+    "rom_folder": "cps3",
+    "screenscraper_id": 8,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "daphne",
+    "rom_folder": "daphne",
+    "screenscraper_id": 49,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "dendy",
+    "rom_folder": "dendy",
+    "screenscraper_id": 3,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "dice",
+    "rom_folder": "dice",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "dinothawr",
+    "rom_folder": "dinothawr",
+    "screenscraper_id": 63,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "dos",
+    "rom_folder": "dos",
+    "screenscraper_id": 135,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "dragon32",
+    "rom_folder": "dragon32",
+    "screenscraper_id": 91,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "dreamcast",
+    "rom_folder": "dreamcast",
+    "screenscraper_id": 23,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "dreamcast-jp",
+    "rom_folder": "dreamcast-jp",
+    "screenscraper_id": 23,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "dreamcastjp",
+    "rom_folder": "dreamcastjp",
+    "screenscraper_id": 23,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "ecwolf",
+    "rom_folder": "ecwolf",
+    "screenscraper_id": 135,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "elektronika",
+    "rom_folder": "elektronika",
+    "screenscraper_id": 52,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "enterprise64_128",
+    "rom_folder": "enterprise64_128",
+    "screenscraper_id": 92,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "exl100",
+    "rom_folder": "exl100",
+    "screenscraper_id": 96,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "famicom",
+    "rom_folder": "famicom",
+    "screenscraper_id": 3,
+    "kind": "alias",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "fbneo",
+    "rom_folder": "fbneo",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "fightcade2",
+    "rom_folder": "fightcade2",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "fm7",
+    "rom_folder": "fm7",
+    "screenscraper_id": 97,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "fmtowns",
+    "rom_folder": "fmtowns",
+    "screenscraper_id": 253,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "gaelco",
+    "rom_folder": "gaelco",
+    "screenscraper_id": 194,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "gameandwatch",
+    "rom_folder": "gameandwatch",
+    "screenscraper_id": 52,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "gamecube",
+    "rom_folder": "gamecube",
+    "screenscraper_id": 13,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "gamecubeh",
+    "rom_folder": "gamecubeh",
+    "screenscraper_id": 13,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "gamecubejp",
+    "rom_folder": "gamecubejp",
+    "screenscraper_id": 13,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "gamegear",
+    "rom_folder": "gamegear",
+    "screenscraper_id": 21,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "gamegear-jp",
+    "rom_folder": "gamegear-jp",
+    "screenscraper_id": 21,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "gb",
+    "rom_folder": "gb",
+    "screenscraper_id": 9,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "gb-jp",
+    "rom_folder": "gb-jp",
+    "screenscraper_id": 9,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "gba",
+    "rom_folder": "gba",
+    "screenscraper_id": 12,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "gba-jp",
+    "rom_folder": "gba-jp",
+    "screenscraper_id": 12,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "gbah",
+    "rom_folder": "gbah",
+    "screenscraper_id": 12,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "gbc",
+    "rom_folder": "gbc",
+    "screenscraper_id": 10,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "gbc-jp",
+    "rom_folder": "gbc-jp",
+    "screenscraper_id": 10,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "gbch",
+    "rom_folder": "gbch",
+    "screenscraper_id": 10,
+    "kind": "hack",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "gbh",
+    "rom_folder": "gbh",
+    "screenscraper_id": 9,
+    "kind": "hack",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "gc-jp",
+    "rom_folder": "gc-jp",
+    "screenscraper_id": 10,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "genesis",
+    "rom_folder": "genesis",
+    "screenscraper_id": 1,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "genh",
+    "rom_folder": "genh",
+    "screenscraper_id": 1,
+    "kind": "hack",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "ggh",
+    "rom_folder": "ggh",
+    "screenscraper_id": 21,
+    "kind": "hack",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "globalvr_batocera",
+    "rom_folder": "globalvr_batocera",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "globalvr_retrobat",
+    "rom_folder": "globalvr_retrobat",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "gog",
+    "rom_folder": "gog",
+    "screenscraper_id": 138,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "gp32",
+    "rom_folder": "gp32",
+    "screenscraper_id": 101,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "gx4000",
+    "rom_folder": "gx4000",
+    "screenscraper_id": 65,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "hbmame",
+    "rom_folder": "hbmame",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "hikaru",
+    "rom_folder": "hikaru",
+    "screenscraper_id": 258,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "igspgm",
+    "rom_folder": "igspgm",
+    "screenscraper_id": 176,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "intellivision",
+    "rom_folder": "intellivision",
+    "screenscraper_id": 115,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "j2me",
+    "rom_folder": "j2me",
+    "screenscraper_id": 302,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "jaguar",
+    "rom_folder": "jaguar",
+    "screenscraper_id": 27,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "jaguarcd",
+    "rom_folder": "jaguarcd",
+    "screenscraper_id": 171,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "jaguarcd_gspawn",
+    "rom_folder": "jaguarcd_gspawn",
+    "screenscraper_id": 171,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "jupace",
+    "rom_folder": "jupace",
+    "screenscraper_id": 126,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "konamilcd",
+    "rom_folder": "konamilcd",
+    "screenscraper_id": 52,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "konamipc",
+    "rom_folder": "konamipc",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "konamipc_batocera",
+    "rom_folder": "konamipc_batocera",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "locomalito",
+    "rom_folder": "locomalito",
+    "screenscraper_id": 138,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "lynx",
+    "rom_folder": "lynx",
+    "screenscraper_id": 28,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "m5",
+    "rom_folder": "m5",
+    "screenscraper_id": 141,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "mame",
+    "rom_folder": "mame",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "mame-aknf",
+    "rom_folder": "mame-aknf",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "mame_lite",
+    "rom_folder": "mame_lite",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "mark3",
+    "rom_folder": "mark3",
+    "screenscraper_id": 2,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "markiii",
+    "rom_folder": "markiii",
+    "screenscraper_id": 2,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "mastersystem",
+    "rom_folder": "mastersystem",
+    "screenscraper_id": 2,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "megacd",
+    "rom_folder": "megacd",
+    "screenscraper_id": 20,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "megacd32x",
+    "rom_folder": "megacd32x",
+    "screenscraper_id": 19,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "megadrive",
+    "rom_folder": "megadrive",
+    "screenscraper_id": 1,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "megadrive-jp",
+    "rom_folder": "megadrive-jp",
+    "screenscraper_id": 1,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "megadrive-msu",
+    "rom_folder": "megadrive-msu",
+    "screenscraper_id": 1,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "megaduck",
+    "rom_folder": "megaduck",
+    "screenscraper_id": 90,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "model1",
+    "rom_folder": "model1",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "model2",
+    "rom_folder": "model2",
+    "screenscraper_id": 54,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "msx",
+    "rom_folder": "msx",
+    "screenscraper_id": 113,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "msx1",
+    "rom_folder": "msx1",
+    "screenscraper_id": 113,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "msx2",
+    "rom_folder": "msx2",
+    "screenscraper_id": 116,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "msxlaserdisk",
+    "rom_folder": "msxlaserdisk",
+    "screenscraper_id": 113,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "msxturbor",
+    "rom_folder": "msxturbor",
+    "screenscraper_id": 118,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "myvision",
+    "rom_folder": "myvision",
+    "screenscraper_id": 305,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "mz2000",
+    "rom_folder": "mz2000",
+    "screenscraper_id": 122,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "mz2200",
+    "rom_folder": "mz2200",
+    "screenscraper_id": 122,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "mz2500",
+    "rom_folder": "mz2500",
+    "screenscraper_id": 314,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "n64",
+    "rom_folder": "n64",
+    "screenscraper_id": 14,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "n64dd",
+    "rom_folder": "n64dd",
+    "screenscraper_id": 122,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "n64h",
+    "rom_folder": "n64h",
+    "screenscraper_id": 14,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "n64jp",
+    "rom_folder": "n64jp",
+    "screenscraper_id": 14,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "namco10",
+    "rom_folder": "namco10",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "namco11",
+    "rom_folder": "namco11",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "namco12",
+    "rom_folder": "namco12",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "namco22",
+    "rom_folder": "namco22",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "namco23",
+    "rom_folder": "namco23",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "namco2x6_batocera",
+    "rom_folder": "namco2x6_batocera",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "namco3xx_batocera",
+    "rom_folder": "namco3xx_batocera",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "namco3xx_retrobat",
+    "rom_folder": "namco3xx_retrobat",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "namcoes3",
+    "rom_folder": "namcoes3",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "namcoes3_batocera",
+    "rom_folder": "namcoes3_batocera",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "namcoes3_retrobat",
+    "rom_folder": "namcoes3_retrobat",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "naomi",
+    "rom_folder": "naomi",
+    "screenscraper_id": 56,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "naomi2",
+    "rom_folder": "naomi2",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "nds",
+    "rom_folder": "nds",
+    "screenscraper_id": 15,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "nds-jp",
+    "rom_folder": "nds-jp",
+    "screenscraper_id": 15,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "neogeo",
+    "rom_folder": "neogeo",
+    "screenscraper_id": 142,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "neogeo64",
+    "rom_folder": "neogeo64",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "neogeocd",
+    "rom_folder": "neogeocd",
+    "screenscraper_id": 70,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "neogeomvs",
+    "rom_folder": "neogeomvs",
+    "screenscraper_id": 68,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "neogeopocket",
+    "rom_folder": "neogeopocket",
+    "screenscraper_id": 25,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "neogeopocketcolor",
+    "rom_folder": "neogeopocketcolor",
+    "screenscraper_id": 82,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "nes",
+    "rom_folder": "nes",
+    "screenscraper_id": 3,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "nes-msu",
+    "rom_folder": "nes-msu",
+    "screenscraper_id": 3,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "nes_aladdin",
+    "rom_folder": "nes_aladdin",
+    "screenscraper_id": 3,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "nesh",
+    "rom_folder": "nesh",
+    "screenscraper_id": 3,
+    "kind": "hack",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "neshd",
+    "rom_folder": "neshd",
+    "screenscraper_id": 3,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "nesicax",
+    "rom_folder": "nesicax",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "nesicax2",
+    "rom_folder": "nesicax2",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "nesicax_batocera",
+    "rom_folder": "nesicax_batocera",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "nesmsu",
+    "rom_folder": "nesmsu",
+    "screenscraper_id": 3,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "ngage",
+    "rom_folder": "ngage",
+    "screenscraper_id": 30,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "ngage2",
+    "rom_folder": "ngage2",
+    "screenscraper_id": 30,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "ngpc",
+    "rom_folder": "ngpc",
+    "screenscraper_id": 82,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "odyssey2",
+    "rom_folder": "odyssey2",
+    "screenscraper_id": 104,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "openbor",
+    "rom_folder": "openbor",
+    "screenscraper_id": 214,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "oric1",
+    "rom_folder": "oric1",
+    "screenscraper_id": 131,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "oricatmos",
+    "rom_folder": "oricatmos",
+    "screenscraper_id": 131,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "p2000t",
+    "rom_folder": "p2000t",
+    "screenscraper_id": 287,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "palm",
+    "rom_folder": "palm",
+    "screenscraper_id": 219,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "pc88",
+    "rom_folder": "pc88",
+    "screenscraper_id": 221,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "pc98",
+    "rom_folder": "pc98",
+    "screenscraper_id": 208,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "pcengine",
+    "rom_folder": "pcengine",
+    "screenscraper_id": 31,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "pcenginecd",
+    "rom_folder": "pcenginecd",
+    "screenscraper_id": 114,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "pecom64",
+    "rom_folder": "pecom64",
+    "screenscraper_id": 125,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "pegasus",
+    "rom_folder": "pegasus",
+    "screenscraper_id": 83,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "pinballarcade",
+    "rom_folder": "pinballarcade",
+    "screenscraper_id": 200,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "pinballfx",
+    "rom_folder": "pinballfx",
+    "screenscraper_id": 143,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "pinballfx2",
+    "rom_folder": "pinballfx2",
+    "screenscraper_id": 143,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "pinballfx3",
+    "rom_folder": "pinballfx3",
+    "screenscraper_id": 201,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "pinballm",
+    "rom_folder": "pinballm",
+    "screenscraper_id": 197,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "pocketchallengev2",
+    "rom_folder": "pocketchallengev2",
+    "screenscraper_id": 237,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "pokemini",
+    "rom_folder": "pokemini",
+    "screenscraper_id": 211,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "ps2",
+    "rom_folder": "ps2",
+    "screenscraper_id": 58,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "ps2-jp",
+    "rom_folder": "ps2-jp",
+    "screenscraper_id": 58,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "ps3",
+    "rom_folder": "ps3",
+    "screenscraper_id": 59,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "ps3h",
+    "rom_folder": "ps3h",
+    "screenscraper_id": 59,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "ps4",
+    "rom_folder": "ps4",
+    "screenscraper_id": 60,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "ps5",
+    "rom_folder": "ps5",
+    "screenscraper_id": 284,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "psn",
+    "rom_folder": "psn",
+    "screenscraper_id": 59,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "psp",
+    "rom_folder": "psp",
+    "screenscraper_id": 61,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "psp-jp",
+    "rom_folder": "psp-jp",
+    "screenscraper_id": 61,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "pspminis",
+    "rom_folder": "pspminis",
+    "screenscraper_id": 61,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "psvita",
+    "rom_folder": "psvita",
+    "screenscraper_id": 62,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "psx",
+    "rom_folder": "psx",
+    "screenscraper_id": 57,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "psx-jp",
+    "rom_folder": "psx-jp",
+    "screenscraper_id": 57,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "pv2000",
+    "rom_folder": "pv2000",
+    "screenscraper_id": 74,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "rawthrills",
+    "rom_folder": "rawthrills",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "rawthrills_batocera",
+    "rom_folder": "rawthrills_batocera",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "raze",
+    "rom_folder": "raze",
+    "screenscraper_id": 135,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "rx78",
+    "rom_folder": "rx78",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "samcoupe",
+    "rom_folder": "samcoupe",
+    "screenscraper_id": 213,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "saturn",
+    "rom_folder": "saturn",
+    "screenscraper_id": 22,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "saturn-jp",
+    "rom_folder": "saturn-jp",
+    "screenscraper_id": 22,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "saturnjp",
+    "rom_folder": "saturnjp",
+    "screenscraper_id": 22,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "sc3000",
+    "rom_folder": "sc3000",
+    "screenscraper_id": 109,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "scummvm",
+    "rom_folder": "scummvm",
+    "screenscraper_id": 86,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "sega32x",
+    "rom_folder": "sega32x",
+    "screenscraper_id": 19,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "sega32xcd",
+    "rom_folder": "sega32xcd",
+    "screenscraper_id": 20,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "segaCD",
+    "rom_folder": "segaCD",
+    "screenscraper_id": 20,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "segaalls",
+    "rom_folder": "segaalls",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "segachannel",
+    "rom_folder": "segachannel",
+    "screenscraper_id": 1,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "segaer",
+    "rom_folder": "segaer",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "seganu_retrobat",
+    "rom_folder": "seganu_retrobat",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "segare",
+    "rom_folder": "segare",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "segarw",
+    "rom_folder": "segarw",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "segastv",
+    "rom_folder": "segastv",
+    "screenscraper_id": 69,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "segasystem32",
+    "rom_folder": "segasystem32",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "sfc",
+    "rom_folder": "sfc",
+    "screenscraper_id": 4,
+    "kind": "alias",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "sgb",
+    "rom_folder": "sgb",
+    "screenscraper_id": 9,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "snes",
+    "rom_folder": "snes",
+    "screenscraper_id": 4,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "snes-msu1",
+    "rom_folder": "snes-msu1",
+    "screenscraper_id": 210,
+    "kind": "variant",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "snescd",
+    "rom_folder": "snescd",
+    "screenscraper_id": 210,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "snesh",
+    "rom_folder": "snesh",
+    "screenscraper_id": 202,
+    "kind": "hack",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "soh",
+    "rom_folder": "soh",
+    "screenscraper_id": 14,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "sorcerer",
+    "rom_folder": "sorcerer",
+    "screenscraper_id": 165,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "sordm5",
+    "rom_folder": "sordm5",
+    "screenscraper_id": 323,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "sufami",
+    "rom_folder": "sufami",
+    "screenscraper_id": 108,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "supercharger",
+    "rom_folder": "supercharger",
+    "screenscraper_id": 39,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "supergrafx",
+    "rom_folder": "supergrafx",
+    "screenscraper_id": 105,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "supervision",
+    "rom_folder": "supervision",
+    "screenscraper_id": 207,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "supracan",
+    "rom_folder": "supracan",
+    "screenscraper_id": 100,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "sv8000",
+    "rom_folder": "sv8000",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "svmu",
+    "rom_folder": "svmu",
+    "screenscraper_id": 23,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "switch",
+    "rom_folder": "switch",
+    "screenscraper_id": 225,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "tduo",
+    "rom_folder": "tduo",
+    "screenscraper_id": 114,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "tg16",
+    "rom_folder": "tg16",
+    "screenscraper_id": 31,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "tgcd",
+    "rom_folder": "tgcd",
+    "screenscraper_id": 114,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "tiger",
+    "rom_folder": "tiger",
+    "screenscraper_id": 52,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "toto",
+    "rom_folder": "toto",
+    "screenscraper_id": 29,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "triforce",
+    "rom_folder": "triforce",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "turbografx",
+    "rom_folder": "turbografx",
+    "screenscraper_id": 31,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "turbografxcd",
+    "rom_folder": "turbografxcd",
+    "screenscraper_id": 114,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "typex",
+    "rom_folder": "typex",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "typex2",
+    "rom_folder": "typex2",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "typex2_batocera",
+    "rom_folder": "typex2_batocera",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "typex_batocera",
+    "rom_folder": "typex_batocera",
+    "screenscraper_id": 112,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "unis",
+    "rom_folder": "unis",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "unis_batocera",
+    "rom_folder": "unis_batocera",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "vectrex",
+    "rom_folder": "vectrex",
+    "screenscraper_id": 102,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "vg5k",
+    "rom_folder": "vg5k",
+    "screenscraper_id": 261,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "videopac",
+    "rom_folder": "videopac",
+    "screenscraper_id": 104,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "videopacplus",
+    "rom_folder": "videopacplus",
+    "screenscraper_id": 104,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "virtualboy",
+    "rom_folder": "virtualboy",
+    "screenscraper_id": 11,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "vis",
+    "rom_folder": "vis",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "vpinball",
+    "rom_folder": "vpinball",
+    "screenscraper_id": 198,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "vsmile",
+    "rom_folder": "vsmile",
+    "screenscraper_id": 120,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "wahlap",
+    "rom_folder": "wahlap",
+    "screenscraper_id": 269,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "wii",
+    "rom_folder": "wii",
+    "screenscraper_id": 16,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "wiiu",
+    "rom_folder": "wiiu",
+    "screenscraper_id": 18,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "wiiueshop",
+    "rom_folder": "wiiueshop",
+    "screenscraper_id": 18,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "wiiusky",
+    "rom_folder": "wiiusky",
+    "screenscraper_id": 18,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "wiiware",
+    "rom_folder": "wiiware",
+    "screenscraper_id": 16,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "win11",
+    "rom_folder": "win11",
+    "screenscraper_id": 136,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "win311",
+    "rom_folder": "win311",
+    "screenscraper_id": 136,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "win95",
+    "rom_folder": "win95",
+    "screenscraper_id": 137,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "win98",
+    "rom_folder": "win98",
+    "screenscraper_id": 137,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "windows",
+    "rom_folder": "windows",
+    "screenscraper_id": 138,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "wonderswan",
+    "rom_folder": "wonderswan",
+    "screenscraper_id": 45,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "wonderswancolor",
+    "rom_folder": "wonderswancolor",
+    "screenscraper_id": 46,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "wswan",
+    "rom_folder": "wswan",
+    "screenscraper_id": 45,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "wswanc",
+    "rom_folder": "wswanc",
+    "screenscraper_id": 46,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "x1",
+    "rom_folder": "x1",
+    "screenscraper_id": 220,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "x68000",
+    "rom_folder": "x68000",
+    "screenscraper_id": 79,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  },
+  {
+    "theme_name": "xbla",
+    "rom_folder": "xbla",
+    "screenscraper_id": 33,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "xbox",
+    "rom_folder": "xbox",
+    "screenscraper_id": 32,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "xbox360",
+    "rom_folder": "xbox360",
+    "screenscraper_id": 33,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "xboxone",
+    "rom_folder": "xboxone",
+    "screenscraper_id": 34,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "xboxseries",
+    "rom_folder": "xboxseries",
+    "screenscraper_id": 34,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "zaccariapinball",
+    "rom_folder": "zaccariapinball",
+    "screenscraper_id": 197,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "zinc",
+    "rom_folder": "zinc",
+    "screenscraper_id": 75,
+    "kind": "standard",
+    "in_defaults": false,
+    "favourite": false
+  },
+  {
+    "theme_name": "zxspectrum",
+    "rom_folder": "zxspectrum",
+    "screenscraper_id": 76,
+    "kind": "standard",
+    "in_defaults": true,
+    "favourite": false
+  }
+]

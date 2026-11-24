@@ -1,0 +1,7 @@
+# Soundtrack/game pairs checked by hand and confirmed correct.
+# `rank_batch.py mismatches` lists them under "Confirmed correct" instead of
+# asking again. Format: <soundtrack url><TAB><why the match is right>
+/music/114	Parasol Stars is the right game; the id was changed to the platform we hold the soundtrack for, whose ss name drops the subtitle
+/music/174	The N64 Castlevania is filed without the "64" the soundtrack title carries
+/music/907	Differ only in the transliteration of Ō/Ou
+/music/454	"Tsuu" is the Japanese "2": Puyo Puyo 2 is Puyo Puyo Tsuu
