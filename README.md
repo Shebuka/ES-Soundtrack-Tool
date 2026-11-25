@@ -29,7 +29,7 @@ scraping or ScreenScraper account.
 ## Quick start (from source)
 
 Requirements: Python 3.11+ (3.12 recommended for the PySide6 wheels) and
-`ffmpeg`/`ffprobe` on your `PATH` (or a static pair in `assets/ffmpeg/`).
+`ffmpeg` on your `PATH` (or a static binary in `assets/ffmpeg/`).
 
 ```sh
 python3.12 -m venv .venv
@@ -190,9 +190,8 @@ when nothing better exists.
 
 ### System identity mapping
 
-`screenscraper` ids come from
-[`src/es_ost/resources/systems.json`](src/es_ost/resources/systems.json), a
-rom-folder → ScreenScraper id table shipped as package data. Keys the file
+`screenscraper` ids come from [`data/systems.json`](data/systems.json), a
+rom-folder → ScreenScraper id table shipped with the dataset. Keys the file
 cannot resolve fall back to a canonical system:
 
 | Theme / rom-folder key | Canonical key | Screenscraper id | Kind |
@@ -220,42 +219,107 @@ Captured upstream pages used by the parser tests live in `tests/fixtures/`.
 There are no automated GUI tests; smoke-test the window offscreen against the
 committed `data/` directory.
 
-## Packaging
+## Packaging and releases
 
-The app is packaged with `pyside-deploy` using
-[`pysidedeploy.spec`](pysidedeploy.spec), which bundles `data/` and
-`assets/` (put a static `ffmpeg`/`ffprobe` pair in `assets/ffmpeg/` for a
-release build). The developer credentials are embedded separately through
-`resource_data.qrc`:
+The app is packaged with `pyside6-deploy` (Nuitka) using
+[`pysidedeploy.spec`](pysidedeploy.spec). [`main.py`](main.py) is the entry
+point the spec compiles; Nuitka reads its data/asset includes and Windows
+metadata there.
+
+### Build locally
 
 ```sh
+# 1. A static ffmpeg for this platform (git-ignored)
+python scripts/fetch_ffmpeg.py
+
+# 2. Developer credentials: copy the template and fill in the base64 values
+cp .env.example .env
+
+# 3. Point the spec at this platform's icon format (icns/ico/png)
+python scripts/select_icon.py
+
+# 4. Embed the credentials in the Qt resource and build
 pyside6-rcc resource_data.qrc -o src/es_ost/gui/rc_data.py
+pyside6-deploy -c pysidedeploy.spec --no-install
 ```
 
-`.env` is the source for those credentials and is git-ignored; commit only
-[`.env.example`](.env.example) (empty values) and inject the real values at
-build time from a CI secret. The generated `src/es_ost/gui/rc_data.py` is also
-git-ignored.
+`pip install -e ".[build]"` installs the pinned Nuitka. The output is
+`dist/ES Soundtrack Tool.app` on macOS and a `dist/*.dist` folder on Linux and
+Windows. The build bundles `data/` without the scrape cache and
+`assets/ffmpeg`, and the frozen app writes its log to the platform log
+directory (`~/Library/Logs/ES Soundtrack Tool`, `%LOCALAPPDATA%`, or
+`$XDG_STATE_HOME`).
 
-Running from source is the supported path today. The packaged build has two
-open items to verify before a release: `pysidedeploy.spec` expects an
-`assets/` directory that is not populated in a source checkout, and the
-window resolves `data/` relative to the source tree.
+### GitHub release
+
+Pushing a `vX.Y.Z` tag runs
+[`.github/workflows/release.yml`](.github/workflows/release.yml): the test
+suite, then a four-target build (Linux x86_64, Windows x64, macOS x86_64,
+macOS arm64), and attaches a checksummed archive per target to the GitHub
+release. The tag version is stamped into `pyproject.toml` and the Windows
+metadata.
+
+The workflow needs one repository secret, `SCREENSCRAPER_ENV`, containing the
+exact three-line `.env` content:
+
+```
+DEVID=<base64>
+DEVPASSWORD=<base64>
+SOFTNAME=<base64>
+```
+
+It is compiled into `rc_data.py` and never lands in the release artifacts.
+
+Notes:
+
+- macOS ships as two artifacts rather than one fat binary: a universal2 Nuitka
+  build needs a universal interpreter and universal builds of every compiled
+  dependency, and `rapidfuzz` publishes per-architecture wheels. The Intel
+  build uses PySide6 6.11 (macOS 13), the arm64 build PySide6 6.12 (macOS 14).
+- The macOS app is ad-hoc signed, not notarized. If Gatekeeper blocks it after
+  download, clear the quarantine flag:
+  `xattr -dr com.apple.quarantine "ES Soundtrack Tool.app"`.
+- Linux ships `.tar.gz` so the executable bit and library symlinks survive;
+  Windows and macOS ship `.zip`.
+
+### Bundled ffmpeg
+
+[`scripts/fetch_ffmpeg.py`](scripts/fetch_ffmpeg.py) pins one static `ffmpeg`
+build per target, verifies a SHA-256 and records the source in
+`assets/ffmpeg/SOURCE.txt`:
+
+| target | build | license |
+|---|---|---|
+| linux-x86_64, windows-x64 | BtbN `ffmpeg-master-latest-*-lgpl` | LGPL |
+| macos-x86_64 | evermeet.cx 9.1 | GPL |
+| macos-arm64 | OSXExperts 9.1 | GPL |
+
+ffmpeg.org does not host binaries itself; these are the static builds linked
+from its [download page](https://ffmpeg.org/download.html). The binary is
+git-ignored, and a source checkout falls back to `ffmpeg` on `PATH`.
+
+Only `ffmpeg` is bundled, and it is used for the transcode alone. QtMultimedia
+ships its own FFmpeg for playback, and the duration that sizes the preview cut
+comes from the MP3's frames via mutagen — so there is no `ffprobe` (~78 MB for a
+single number) in the bundle.
 
 ## Project layout
 
 ```
+main.py        pyside6-deploy/Nuitka entry point and build directives
 src/es_ost/
   core/        domain model, system map, ranking, assignment, dataset/project IO
   prep/        Retrotracks + ScreenScraper scrapers and the dataset builder CLI
   gui/         PySide6 application (window, table, wizard, refresh, export)
-  resources/   systems.json (rom-folder -> ScreenScraper id, package data)
+  paths.py     data/assets locations for a checkout and a frozen build
   downloader.py  song download + ffmpeg transcode
-data/          committed frozen dataset (cache under data/.cache is ignored)
+data/          committed dataset: frozen JSON + systems.json (cache ignored)
 rank/          committed rankings.json + mismatch_ok.tsv (work files ignored)
-scripts/       rank_batch.py (ranking helper)
+scripts/       rank_batch.py, fetch_ffmpeg.py, select_icon.py
+.github/       release workflow triggered by v* tags
 tests/         pytest suite, captured upstream pages in tests/fixtures/
 docs/          known data issues
+assets/        icon exports and the release-only ffmpeg binary
 ```
 
 ## Data sources and legal notes
@@ -274,3 +338,12 @@ docs/          known data issues
 - `systems.json` comes from `emulationstation_gamemanager` and keeps its
   upstream notice; the Retrotracks and ScreenScraper data is governed by their
   terms as described above.
+- The release bundles a static ffmpeg build (LGPL on Linux/Windows, GPL on
+  macOS); its source and license are recorded in
+  [`assets/README.md`](assets/README.md) and in the generated `SOURCE.txt`.
+
+## Credits
+
+- App icon: [magnific](https://www.flaticon.com/authors/magnific) on
+  [Flaticon](https://www.flaticon.com/), used under the Flaticon free license
+  (attribution required).

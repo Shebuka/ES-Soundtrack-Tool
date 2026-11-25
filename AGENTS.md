@@ -21,6 +21,58 @@ way data flows from the scrapers into the shipped app. The user-facing guide is
 - `gui/` — Qt only (imports `core` and `prep`).
 - [`downloader.py`](src/es_ost/downloader.py) — on-demand MP3 fetch + ffmpeg transcode.
 
+## Frozen builds and releases
+
+- [`main.py`](main.py) is the pyside6-deploy/Nuitka entry point. Nuitka reads
+  `# nuitka-project` directives only from the compiled main script, so the
+  `data`/`assets` includes, the scrape-cache exclusion and the Windows metadata
+  live there, not in `app.py`. `systems.json` rides along in `data/`, so there
+  is no package-data include.
+- [`app.py`](src/es_ost/gui/app.py) imports `rc_data` statically
+  (`try: from . import rc_data`). A dynamic import is invisible to Nuitka and
+  silently drops the embedded `.env` from a frozen build.
+- [`paths.py`](src/es_ost/paths.py) resolves `data/` and `assets/` next to the
+  executable for Nuitka/PyInstaller and to the repository root in a checkout.
+  Do not reintroduce `__file__.parents[...]` arithmetic in the GUI or the
+  downloader; `env_loader.is_frozen()` uses the same detection.
+- [`pysidedeploy.spec`](pysidedeploy.spec) uses paths relative to the spec and
+  lists Core/Gui/Widgets/Multimedia explicitly to avoid a project scan; Nuitka
+  is pinned to 4.1.1 in the spec and in the `build` extra. A real build
+  rewrites the spec in place (detected plugins, dropped blank lines), so do not
+  commit that generated state. It also reparses the file with
+  `ConfigParser(comment_prefixes="/", allow_no_value=True)`, so a `#` comment is
+  a valueless *key*: keep the comments lowercase and free of `:` and `=`, or the
+  rewrite splits them into a key/value pair.
+- The bundle is pruned deliberately, because Nuitka's PySide6 plugin always adds
+  its whole "sensible" Qt plugin set. `plugins = multimedia` stops
+  pyside6-deploy's own detection from adding `platforminputcontexts`, which
+  drags in QtVirtualKeyboard and the Qt Quick/Qml stack (~25 MB) that nothing
+  loads; [`main.py`](main.py) additionally excludes the second OpenSSL keg
+  (`libcrypto.4`/`libssl.4` plus the unversioned aliases, ~17.5 MB) that the
+  macOS dependency walker copies although only `.3` is linked by `_ssl` and
+  `_hashlib`. QtPdf (~9 MB) cannot be dropped this way: it arrives with the
+  "sensible" `imageformats` set, not from detection.
+- [`.github/workflows/release.yml`](.github/workflows/release.yml) builds four
+  targets on a `v*` tag. `SCREENSCRAPER_ENV` (the exact three-line `.env`) is a
+  repository secret compiled into `rc_data.py`; the tag version is stamped into
+  `pyproject.toml` and the Windows metadata. The `.env` never reaches the
+  release artifacts.
+- macOS is two artifacts, not universal2: Nuitka's universal2 mode needs a
+  universal interpreter and universal builds of every compiled dependency, and
+  `rapidfuzz` ships per-architecture wheels. Intel pins PySide6 6.11 (macOS
+  13), arm64 6.12 (macOS 14).
+- ffmpeg comes from [`scripts/fetch_ffmpeg.py`](scripts/fetch_ffmpeg.py)
+  (BtbN LGPL on Linux/Windows, evermeet.cx/OSXExperts GPL on macOS), is
+  SHA-256 verified and git-ignored. Linux ships `.tar.gz` so the executable bit
+  and library symlinks survive; Windows/macOS ship `.zip`. Only `ffmpeg` is
+  fetched: the duration that sizes the preview cut is read from the cached MP3's
+  frames with mutagen ([`downloader.probe_duration`](src/es_ost/downloader.py)),
+  because a bundled static `ffprobe` is ~78 MB for one float and QtMultimedia's
+  `QMediaPlayer.duration` is only available asynchronously on the GUI thread.
+  The bundle therefore holds three FFmpeg-ish pieces by design — the static
+  encoder, Qt's decoder, and nothing else — and PyAV would add a *fourth*
+  (`av/.dylibs`, ~66 MB, no libvorbis), not replace any of them.
+
 ## Tracked data
 
 - `data/` is a **committed** frozen dataset. `data/.cache/` is the scrape cache
@@ -28,8 +80,10 @@ way data flows from the scrapers into the shipped app. The user-facing guide is
 - `rank/rankings.json` (authoritative LLM scores) and `rank/mismatch_ok.tsv`
   (soundtrack/game pairs confirmed correct by hand) are committed. Every other
   `rank/` file is a working file and is ignored.
-- `src/es_ost/resources/systems.json` is the authoritative rom-folder →
-  ScreenScraper id mapping, shipped as package data.
+- `data/systems.json` is the authoritative rom-folder → ScreenScraper id
+  mapping. It lives next to the frozen dataset so the single `data` include
+  bundles it, but it is **source input**, not generated: `save_dataset` writes
+  only the five JSON files, so a rebuild never touches it.
 - Rebuilding the dataset is a data change: run `es-ost-prep build`, then
   `merge-rankings`, and commit the resulting `data/*.json` together with the
   `rank/rankings.json` that produced them. Never commit `data/.cache`.

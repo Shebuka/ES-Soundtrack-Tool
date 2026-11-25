@@ -1,7 +1,8 @@
 """Fetch songs from Retrotracks and transcode to the chosen export format.
 
-Uses a bundled ffmpeg/ffprobe binary when present, falling back to ``ffmpeg``
-and ``ffprobe`` on PATH.
+Uses a bundled ffmpeg binary when present, falling back to ``ffmpeg`` on PATH.
+The source length needed for the cut comes from the file's own frames (mutagen),
+not from a second ffprobe process: a static ffprobe is ~78 MB for one float.
 
 Exported tracks are loudness-normalized (EBU R128, -16 LUFS) and cut to at most
 ``max_seconds`` (60 s by default) with a short fade-out, mirroring the
@@ -22,9 +23,11 @@ import urllib.request
 from collections.abc import Mapping
 from pathlib import Path
 
-from .prep.retrotracks import USER_AGENT, resolve_track, track_url
+from mutagen import MutagenError
+from mutagen.mp3 import MP3
 
-_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+from . import paths
+from .prep.retrotracks import USER_AGENT, resolve_track, track_url
 
 logger = logging.getLogger(__name__)
 
@@ -156,10 +159,7 @@ def ensure_cached_mp3(
 
 def find_ffmpeg() -> str:
     """Locate the bundled ffmpeg binary, or fall back to PATH."""
-    asset_roots = (
-        _PROJECT_ROOT / "assets" / "ffmpeg",
-        _PROJECT_ROOT / "assets",
-    )
+    asset_roots = (paths.ffmpeg_dir(), paths.assets_dir())
     for root in asset_roots:
         for name in ("ffmpeg", "ffmpeg.exe"):
             candidate = root / name
@@ -168,56 +168,25 @@ def find_ffmpeg() -> str:
     return shutil.which("ffmpeg") or "ffmpeg"
 
 
-def find_ffprobe(*, ffmpeg: str | None = None) -> str:
-    """Locate the bundled ffprobe binary, or fall back to PATH (or ffmpeg's sibling)."""
-    candidates: list[Path] = []
-    asset_roots = (
-        _PROJECT_ROOT / "assets" / "ffmpeg",
-        _PROJECT_ROOT / "assets",
-    )
-    for root in asset_roots:
-        candidates.extend((root / "ffprobe", root / "ffprobe.exe"))
-    if ffmpeg:
-        # A bundled ffmpeg usually ships with its ffprobe next to it.
-        bundled = Path(ffmpeg)
-        candidates.append(bundled.with_name(f"ffprobe{bundled.suffix}"))
-    for candidate in candidates:
-        if candidate.exists():
-            return str(candidate)
-    return shutil.which("ffprobe") or "ffprobe"
+def probe_duration(path: Path) -> float | None:
+    """Return the track length in seconds, or ``None`` when it cannot be read.
 
+    The exporter only ever probes the cached Retrotracks MP3, so the length is
+    read from the file's own frames instead of shelling out to ffprobe. Mutagen
+    walks the frames already on disk; there is nothing to download or bundle.
 
-def probe_duration(
-    path: Path,
-    *,
-    ffprobe: str | None = None,
-    timeout: float = 60.0,
-) -> float | None:
-    """Return the track length in seconds, or ``None`` when ffprobe cannot tell.
-
-    A missing or broken ffprobe must not fail the export: the caller treats an
-    unknown duration as "long enough to need the cut".
+    A truncated or unrecognised file must not fail the export: the caller treats
+    an unknown duration as "long enough to need the cut".
     """
-    command = [
-        ffprobe or find_ffprobe(),
-        "-v",
-        "error",
-        "-show_entries",
-        "format=duration",
-        "-of",
-        "default=noprint_wrappers=1:nokey=1",
-        str(path),
-    ]
     try:
-        result = subprocess.run(command, check=True, capture_output=True, text=True, timeout=timeout)
-    except (subprocess.CalledProcessError, subprocess.TimeoutExpired, OSError) as exc:
-        logger.warning("downloader: could not probe duration of %s: %s", path, exc)
+        length = float(MP3(str(path)).info.length)
+    except (MutagenError, OSError) as exc:
+        logger.warning("downloader: could not read the duration of %s: %s", path, exc)
         return None
-    try:
-        return float(result.stdout.strip())
-    except ValueError:
-        logger.warning("downloader: unparsable duration %r for %s", result.stdout.strip(), path)
+    if length <= 0:
+        logger.warning("downloader: %s reports a non-positive duration", path)
         return None
+    return length
 
 
 def build_transcode_command(
@@ -281,7 +250,6 @@ def transcode_audio(
     *,
     audio_format: str = "mp3",
     ffmpeg: str | None = None,
-    ffprobe: str | None = None,
     overwrite: bool = True,
     max_seconds: float | None = DEFAULT_MAX_SECONDS,
     normalize: bool = True,
@@ -298,7 +266,7 @@ def transcode_audio(
     ffmpeg_bin = ffmpeg or find_ffmpeg()
     duration: float | None = None
     if max_seconds is not None:
-        duration = probe_duration(source_path, ffprobe=ffprobe or find_ffprobe(ffmpeg=ffmpeg_bin))
+        duration = probe_duration(source_path)
     command = build_transcode_command(
         source_path,
         dest_path,
@@ -346,7 +314,6 @@ def download_and_transcode(
     *,
     audio_format: str = "mp3",
     ffmpeg: str | None = None,
-    ffprobe: str | None = None,
     timeout: float = 60.0,
     max_seconds: float | None = DEFAULT_MAX_SECONDS,
     normalize: bool = True,
@@ -373,7 +340,6 @@ def download_and_transcode(
             dest_path,
             audio_format=audio_format,
             ffmpeg=ffmpeg,
-            ffprobe=ffprobe,
             max_seconds=max_seconds,
             normalize=normalize,
             tags=tags,

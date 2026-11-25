@@ -16,10 +16,10 @@ imported lazily so the data layer stays Qt-free.
 from __future__ import annotations
 
 import io
-import sys
 
 from dotenv import load_dotenv
 
+from ..paths import is_frozen
 from .credentials import DevCredentials, dev_credentials_from_env
 
 PACKAGED_ENV_RESOURCE = ":/data/.env"
@@ -46,7 +46,7 @@ def _read_resource_text(resource: str) -> str:
 
 def load_environment() -> None:
     """Load the root .env into os.environ from the correct source."""
-    if not getattr(sys, "frozen", False):
+    if not is_frozen():
         load_dotenv()  # python-dotenv default: searches the directory tree for .env
         return
     load_dotenv(stream=io.StringIO(_read_resource_text(PACKAGED_ENV_RESOURCE)))

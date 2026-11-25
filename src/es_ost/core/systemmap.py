@@ -1,7 +1,7 @@
 """System identity mapping.
 
 Resolves rom-folder names to ScreenScraper system ids using the bundled
-``resources/systems.json`` (from emulationstation_gamemanager) and applies the
+``data/systems.json`` (from emulationstation_gamemanager) and applies the
 fallback/classification table documented in ``AGENTS.md``.
 
 This module is used at dataset-prep time to produce the resolved
@@ -14,12 +14,10 @@ import json
 import logging
 from pathlib import Path
 
+from .. import paths
 from .models import ThemeKind, ThemeSystem
 
 logger = logging.getLogger(__name__)
-
-# The mapping ships as package data, next to the code that reads it.
-_RESOURCES_DIR = Path(__file__).resolve().parents[1] / "resources"
 
 # Provisional default subset: the rom folders a freshly formatted ArkOS /
 # RetroArch easyroms partition ships with. TODO finalize against the target
@@ -167,5 +165,10 @@ def load_theme_systems(path: Path) -> list[ThemeSystem]:
 
 
 def bundled_systems_json() -> Path:
-    """Locate the bundled rom-folder to ScreenScraper id mapping."""
-    return _RESOURCES_DIR / "systems.json"
+    """Locate the bundled rom-folder to ScreenScraper id mapping.
+
+    It lives in ``data/`` next to the frozen dataset so the packaging step
+    copies it with the same directory include, and a rebuild never touches it
+    (``save_dataset`` writes only the five generated files).
+    """
+    return paths.data_dir() / "systems.json"

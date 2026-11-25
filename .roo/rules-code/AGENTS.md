@@ -3,7 +3,7 @@
 Code-mode guidance for this repository. Only non-obvious, project-specific rules.
 
 - The app is implemented in [`src/es_ost/`](../../src/es_ost); follow the existing layering (`core` = no Qt/network, `prep` = CLI + network, `gui` = Qt). The binding reference is [`AGENTS.md`](../../AGENTS.md).
-- The rom-folder mapping is shipped as package data at [`src/es_ost/resources/systems.json`](../../src/es_ost/resources/systems.json); normalize its heterogeneous `screenscraper` field to `int | None`.
+- The rom-folder mapping is [`data/systems.json`](../../data/systems.json); normalize its heterogeneous `screenscraper` field to `int | None`.
 - ScreenScraper `note` = community score (0–20); `rating` = PEGI/ESRB age rating. `note` arrives as `{"text": "17"}` or `null`; platform names live under `systemesListe[].noms`.
 - Game titles come from the `noms` array (the `ss` region is standardized); scrape count = sum of `roms[].nbscrap` via `jeuInfos`, fetched only for soundtracks' filtered candidates (each carries its own platform; no CSV scan).
 - `jeuRecherche` returns `[{}]` for no results; API order is unreliable — sort by `candidate_score` (best `fuzzy_score` over every `noms` title), the same score `match_game` uses to pick a winner.

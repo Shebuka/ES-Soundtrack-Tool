@@ -88,9 +88,33 @@ def test_normalize_false_drops_the_filter_chain():
     assert "-af" not in command
 
 
-def test_probe_failure_degrades_to_unknown_duration(monkeypatch):
-    monkeypatch.setattr(downloader.subprocess, "run", lambda *a, **kw: (_ for _ in ()).throw(FileNotFoundError()))
-    assert downloader.probe_duration(Path("in.mp3")) is None
+def _fake_mp3(path: Path, frames: int = 40) -> Path:
+    """A tagless CBR MPEG-1 Layer III stream: 128 kbps at 44.1 kHz."""
+    frame = b"\xff\xfb\x90\x00" + b"\x00" * (417 - 4)
+    path.write_bytes(frame * frames)
+    return path
+
+
+def test_probe_duration_reads_the_frames_already_on_disk(tmp_path):
+    assert downloader.probe_duration(_fake_mp3(tmp_path / "8389.mp3")) == pytest.approx(1.04, abs=0.01)
+
+
+def test_probe_duration_does_not_spawn_a_process(monkeypatch, tmp_path):
+    def fail(*args, **kwargs):
+        pytest.fail("probe_duration spawned a subprocess")
+
+    monkeypatch.setattr(downloader.subprocess, "run", fail)
+    downloader.probe_duration(_fake_mp3(tmp_path / "8389.mp3"))
+
+
+def test_probe_failure_degrades_to_unknown_duration(tmp_path):
+    broken = tmp_path / "8389.mp3"
+    broken.write_bytes(b"not an mp3 at all")
+    assert downloader.probe_duration(broken) is None
+
+
+def test_probe_of_a_missing_file_degrades_to_unknown_duration(tmp_path):
+    assert downloader.probe_duration(tmp_path / "gone.mp3") is None
 
 
 def test_project_setting_overrides_the_default():

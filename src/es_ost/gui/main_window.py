@@ -24,7 +24,7 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from es_ost import downloader
+from es_ost import downloader, paths
 from es_ost.core import assign
 from es_ost.core import output as output_module
 from es_ost.core.models import Project
@@ -38,8 +38,6 @@ from .wizard import NewProjectDialog
 
 logger = logging.getLogger(__name__)
 
-_PROJECT_ROOT = Path(__file__).resolve().parents[3]
-
 
 class MainWindow(QMainWindow):
     """Top-level window owning the shared AppState and the single-view layout."""
@@ -50,7 +48,7 @@ class MainWindow(QMainWindow):
         self.resize(1120, 720)
 
         self._state = AppState()
-        self._state.load_dataset(_PROJECT_ROOT / "data")
+        self._state.load_dataset(paths.data_dir())
         # Launch with the default ArkOS/RetroArch systems already in the project.
         self._state.project.systems = self._state.default_systems()
 

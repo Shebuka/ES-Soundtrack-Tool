@@ -23,6 +23,7 @@ classifiers = [
 ]
 dependencies = [
     "PySide6>=6.6",
+    "mutagen>=1.47",
     "python-dotenv>=1.0",
     "rapidfuzz>=3.0",
 ]
@@ -31,6 +32,9 @@ dependencies = [
 dev = [
     "pytest>=8",
 ]
+build = [
+    "Nuitka==4.1.1",
+]
 
 [project.scripts]
 es-ost-prep = "es_ost.prep.build_dataset:main"
@@ -38,6 +42,3 @@ es-soundtrack-tool = "es_ost.gui.app:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
-
-[tool.setuptools.package-data]
-es_ost = ["resources/*.json"]

@@ -1,0 +1,199 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: build (${{ matrix.target }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # PySide6 6.12 requires macOS 14, so the Intel build pins 6.11
+          # (macOS 13) and the Apple Silicon build uses 6.12.
+          - os: ubuntu-22.04
+            target: linux-x86_64
+            pyside: "6.12.0"
+          - os: windows-latest
+            target: windows-x64
+            pyside: "6.12.0"
+          - os: macos-13
+            target: macos-x86_64
+            pyside: "6.11.0"
+          - os: macos-14
+            target: macos-arm64
+            pyside: "6.12.0"
+    env:
+      VERSION: ${{ github.ref_name }}
+      TARGET: ${{ matrix.target }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Linux build dependency (patchelf)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y patchelf
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "PySide6==${{ matrix.pyside }}" "Nuitka==4.1.1"
+          python -m pip install -e ".[dev,build]"
+
+      - name: Run the test suite
+        run: python -m pytest -q
+
+      - name: Fetch the static ffmpeg binary
+        run: python scripts/fetch_ffmpeg.py --target "$TARGET"
+
+      - name: Write .env from the SCREENSCRAPER_ENV secret
+        shell: bash
+        env:
+          SCREENSCRAPER_ENV: ${{ secrets.SCREENSCRAPER_ENV }}
+        run: |
+          if [ -z "$SCREENSCRAPER_ENV" ]; then
+            echo "::error::The SCREENSCRAPER_ENV repository secret is missing."
+            exit 1
+          fi
+          printf '%s\n' "$SCREENSCRAPER_ENV" > .env
+
+      - name: Compile the embedded credentials resource
+        run: pyside6-rcc resource_data.qrc -o src/es_ost/gui/rc_data.py
+
+      - name: Stamp the tag version into the package and Windows metadata
+        shell: bash
+        run: |
+          python - "$VERSION" <<'PY'
+          import re
+          import sys
+          from pathlib import Path
+
+          version = sys.argv[1].removeprefix("v")
+          if not re.fullmatch(r"\d+\.\d+\.\d+([-.+][0-9A-Za-z.-]+)?", version):
+              raise SystemExit(f"tag does not look like a version: {sys.argv[1]}")
+          pyproject = Path("pyproject.toml")
+          pyproject.write_text(
+              re.sub(r'(?m)^version = "[^"]*"$', f'version = "{version}"', pyproject.read_text())
+          )
+          main = Path("main.py")
+          text = main.read_text()
+          text = text.replace("--file-version=0.1.0", f"--file-version={version}")
+          text = text.replace("--product-version=0.1.0", f"--product-version={version}")
+          main.write_text(text)
+          PY
+
+      - name: Select the platform icon
+        run: python scripts/select_icon.py
+
+      - name: Use MSVC for Nuitka on Windows
+        if: runner.os == 'Windows'
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          spec = Path("pysidedeploy.spec")
+          spec.write_text(
+              spec.read_text().replace(
+                  "extra_args = --quiet", "extra_args = --msvc=latest --quiet"
+              )
+          )
+          PY
+
+      - name: Build with pyside6-deploy
+        run: pyside6-deploy -c pysidedeploy.spec --no-install
+
+      - name: Package the macOS app bundle
+        if: runner.os == 'macOS'
+        shell: bash
+        run: |
+          mkdir -p release
+          name="es-soundtrack-tool-${VERSION#v}-${TARGET}.zip"
+          # ditto keeps the framework symlinks inside the .app intact.
+          ditto -c -k --keepParent "dist/ES Soundtrack Tool.app" "release/$name"
+
+      - name: Package the Linux standalone folder
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          mkdir -p release
+          folder=$(ls -d dist/*.dist | head -1)
+          name="es-soundtrack-tool-${VERSION#v}-${TARGET}"
+          # tar keeps the executable bit and any library symlinks.
+          tar -C dist -czf "release/$name.tar.gz" "$(basename "$folder")"
+
+      - name: Package the Windows standalone folder
+        if: runner.os == 'Windows'
+        shell: bash
+        run: |
+          mkdir -p release
+          python - <<'PY'
+          import os
+          import shutil
+          from pathlib import Path
+
+          version = os.environ["VERSION"].removeprefix("v")
+          target = os.environ["TARGET"]
+          folders = sorted(p for p in Path("dist").glob("*.dist") if p.is_dir())
+          if len(folders) != 1:
+              raise SystemExit(f"expected one dist folder, found {folders}")
+          folder = folders[0]
+          base = Path("release") / f"es-soundtrack-tool-{version}-{target}"
+          shutil.make_archive(str(base), "zip", root_dir=str(folder.parent), base_dir=folder.name)
+          print("created", base.with_suffix(".zip"))
+          PY
+
+      - name: Write SHA-256 checksums
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+
+          archives = sorted(Path("release").glob("*.zip")) + sorted(Path("release").glob("*.tar.gz"))
+          for archive in archives:
+              digest = hashlib.sha256(archive.read_bytes()).hexdigest()
+              Path(f"{archive}.sha256").write_text(f"{digest}  {archive.name}\n")
+              print(f"{digest}  {archive.name}")
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-${{ matrix.target }}
+          path: release/*
+          if-no-files-found: error
+
+  publish:
+    name: publish the GitHub release
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: release-*
+          path: release
+          merge-multiple: true
+
+      - name: Create or update the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="$GITHUB_REF_NAME"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" release/* --clobber
+          else
+            gh release create "$tag" release/* \
+              --title "ES Soundtrack Tool ${tag#v}" \
+              --generate-notes
+          fi

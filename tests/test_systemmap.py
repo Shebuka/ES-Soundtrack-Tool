@@ -1,3 +1,4 @@
+from es_ost import paths
 from es_ost.core.models import ThemeKind
 from es_ost.core.systemmap import (
     alias_targets,
@@ -15,6 +16,12 @@ def test_normalize_screenscraper():
     assert normalize_screenscraper(None) is None
     assert normalize_screenscraper("not-a-number") is None
     assert normalize_screenscraper(True) is None
+
+
+def test_systems_json_lives_with_the_dataset():
+    mapping = bundled_systems_json()
+    assert mapping == paths.data_dir() / "systems.json"
+    assert mapping.is_file()
 
 
 def test_theme_systems_resolve_verified_ids():
