@@ -59,8 +59,10 @@ way data flows from the scrapers into the shipped app. The user-facing guide is
   release artifacts.
 - macOS is two artifacts, not universal2: Nuitka's universal2 mode needs a
   universal interpreter and universal builds of every compiled dependency, and
-  `rapidfuzz` ships per-architecture wheels. Intel pins PySide6 6.11 (macOS
-  13), arm64 6.12 (macOS 14).
+  `rapidfuzz` ships per-architecture wheels. Both run on macOS 15
+  (`macos-15-intel` for x86_64, `macos-15` for arm64) with the same PySide6
+  6.12, because GitHub retired the macOS 13 and 14 images; the wheels' macOS 14
+  deployment target is what the artifacts require.
 - ffmpeg comes from [`scripts/fetch_ffmpeg.py`](scripts/fetch_ffmpeg.py)
   (BtbN LGPL on Linux/Windows, evermeet.cx/OSXExperts GPL on macOS), is
   SHA-256 verified and git-ignored. Linux ships `.tar.gz` so the executable bit

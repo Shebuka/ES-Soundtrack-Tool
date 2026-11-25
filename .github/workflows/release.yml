@@ -17,18 +17,20 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # PySide6 6.12 requires macOS 14, so the Intel build pins 6.11
-          # (macOS 13) and the Apple Silicon build uses 6.12.
+          # GitHub retired the macOS 13 and 14 images, so both macOS builds run
+          # on macOS 15: macos-15 for arm64, macos-15-intel for x86_64. The
+          # PySide6 6.12 wheels target macOS 14, which suits both, so the whole
+          # matrix shares one Qt version.
           - os: ubuntu-22.04
             target: linux-x86_64
             pyside: "6.12.0"
           - os: windows-latest
             target: windows-x64
             pyside: "6.12.0"
-          - os: macos-13
+          - os: macos-15-intel
             target: macos-x86_64
-            pyside: "6.11.0"
-          - os: macos-14
+            pyside: "6.12.0"
+          - os: macos-15
             target: macos-arm64
             pyside: "6.12.0"
     env:

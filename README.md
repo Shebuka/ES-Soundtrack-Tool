@@ -274,8 +274,9 @@ Notes:
 
 - macOS ships as two artifacts rather than one fat binary: a universal2 Nuitka
   build needs a universal interpreter and universal builds of every compiled
-  dependency, and `rapidfuzz` publishes per-architecture wheels. The Intel
-  build uses PySide6 6.11 (macOS 13), the arm64 build PySide6 6.12 (macOS 14).
+  dependency, and `rapidfuzz` publishes per-architecture wheels. Both are built
+  on the macOS 15 runners (`macos-15` for arm64, `macos-15-intel` for x86_64)
+  with PySide6 6.12, so both need macOS 14 or newer.
 - The macOS app is ad-hoc signed, not notarized. If Gatekeeper blocks it after
   download, clear the quarantine flag:
   `xattr -dr com.apple.quarantine "ES Soundtrack Tool.app"`.
