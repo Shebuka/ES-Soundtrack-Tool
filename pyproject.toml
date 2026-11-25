@@ -9,11 +9,12 @@ description = "Build a personalized per-system background-music soundtrack set f
 readme = "README.md"
 requires-python = ">=3.11"
 license = "AGPL-3.0-or-later"
+# No "License ::" classifier here: PEP 639 superseded it, and setuptools >= 77
+# refuses to build when a license expression and a license classifier coexist.
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Environment :: X11 Applications :: Qt",
     "Intended Audience :: End Users/Desktop",
-    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
     "Operating System :: MacOS",
     "Operating System :: Microsoft :: Windows",
     "Operating System :: POSIX :: Linux",
