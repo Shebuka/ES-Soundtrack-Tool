@@ -43,9 +43,15 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install Linux build dependency (patchelf)
+      - name: Install patchelf for Linux builds
         if: runner.os == 'Linux'
-        run: sudo apt-get update && sudo apt-get install -y patchelf
+        # Two things are needed: Nuitka shells out to the patchelf executable,
+        # and pyside6-deploy's --no-install pre-flight looks for a distribution
+        # called "patchelf" in python metadata. apt provides the first, pip the
+        # second.
+        run: |
+          sudo apt-get update && sudo apt-get install -y patchelf
+          python -m pip install patchelf
 
       - name: Install Python dependencies
         run: |
@@ -57,7 +63,9 @@ jobs:
         run: python -m pytest -q
 
       - name: Fetch the static ffmpeg binary
-        run: python scripts/fetch_ffmpeg.py --target "$TARGET"
+        # matrix.target is interpolated by the runner, so this also works under
+        # the PowerShell default shell on Windows (where $TARGET would be empty)
+        run: python scripts/fetch_ffmpeg.py --target "${{ matrix.target }}"
 
       - name: Write .env from the SCREENSCRAPER_ENV secret
         shell: bash
