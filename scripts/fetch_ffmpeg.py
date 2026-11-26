@@ -37,6 +37,9 @@ from pathlib import Path
 
 BTBN = "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest"
 
+# Per target: ``archives`` are downloaded and verified in order, and
+# ``members`` maps the name the file is installed under to the name it carries
+# inside the archive (a Windows build installs ffmpeg.exe, not ffmpeg).
 TARGETS: dict[str, dict] = {
     "linux-x86_64": {
         "archives": [
@@ -55,7 +58,7 @@ TARGETS: dict[str, dict] = {
                 "checksums": f"{BTBN}/checksums.sha256",
             }
         ],
-        "members": {"ffmpeg": "ffmpeg.exe"},
+        "members": {"ffmpeg.exe": "ffmpeg.exe"},
         "license": "LGPL build by BtbN (ffmpeg.org download link)",
     },
     "macos-x86_64": {
@@ -117,6 +120,17 @@ def upstream_checksum(archive_url: str, checksums_url: str) -> str:
     raise SystemExit(f"{archive_url} is missing from {checksums_url}")
 
 
+def has_member(archive: Path, wanted: str) -> bool:
+    """Whether ``archive`` holds a member whose basename is ``wanted``."""
+    if zipfile.is_zipfile(archive):
+        with zipfile.ZipFile(archive) as bundle:
+            names = [n for n in bundle.namelist() if "__MACOSX" not in n]
+    else:
+        with tarfile.open(archive) as bundle:
+            names = bundle.getnames()
+    return any(name.rsplit("/", 1)[-1] == wanted for name in names)
+
+
 def extract_member(archive: Path, wanted: str) -> bytes:
     """Return the bytes of the archive member whose basename is ``wanted``."""
     if zipfile.is_zipfile(archive):
@@ -142,7 +156,7 @@ def fetch(target: str, dest: Path, force: bool) -> None:
         raise SystemExit(f"unknown target {target!r}; choose from {', '.join(TARGETS)}")
 
     dest.mkdir(parents=True, exist_ok=True)
-    existing = [dest / name for name in spec["members"].values() if (dest / name).exists()]
+    existing = [dest / name for name in spec["members"] if (dest / name).exists()]
     if existing and not force:
         raise SystemExit(
             f"{dest} already contains {', '.join(p.name for p in existing)}; pass --force to replace"
@@ -150,6 +164,7 @@ def fetch(target: str, dest: Path, force: bool) -> None:
 
     sources: list[str] = []
     with tempfile.TemporaryDirectory(prefix="ffmpeg-") as tmp:
+        archives: list[Path] = []
         for archive_spec in spec["archives"]:
             url = archive_spec["url"]
             archive = Path(tmp) / url.rsplit("/", 1)[-1]
@@ -161,22 +176,22 @@ def fetch(target: str, dest: Path, force: bool) -> None:
                 raise SystemExit(f"SHA-256 mismatch for {url}: {actual} != {expected}")
             print(f"verified SHA-256 {actual}")
             sources.append(f"{url}  sha256:{actual}")
+            archives.append(archive)
 
-        # Each per-archive spec names its own member; the LGPL bundle carries
-        # more than we extract, so only the wanted members are written out.
-        if "archives" in spec and all("member" in a for a in spec["archives"]):
-            for archive_spec in spec["archives"]:
-                url = archive_spec["url"]
-                archive = Path(tmp) / url.rsplit("/", 1)[-1]
-                name = archive_spec["member"]
-                (dest / name).write_bytes(extract_member(archive, name))
-        else:
-            archive_spec = spec["archives"][0]
-            archive = Path(tmp) / archive_spec["url"].rsplit("/", 1)[-1]
-            for name, member in spec["members"].items():
+        # The macOS zips carry the binary on its own, the LGPL bundle carries it
+        # next to ffprobe, which is simply not extracted.
+        for name, member in spec["members"].items():
+            for archive in archives:
+                if not has_member(archive, member):
+                    continue
                 (dest / name).write_bytes(extract_member(archive, member))
+                break
+            else:
+                raise SystemExit(
+                    f"{member} is missing from {', '.join(a.name for a in archives)}"
+                )
 
-    for name in spec["members"].values():
+    for name in spec["members"]:
         path = dest / name
         path.chmod(path.stat().st_mode | 0o111)
 
