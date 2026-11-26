@@ -63,6 +63,14 @@ way data flows from the scrapers into the shipped app. The user-facing guide is
   (`macos-15-intel` for x86_64, `macos-15` for arm64) with the same PySide6
   6.12, because GitHub retired the macOS 13 and 14 images; the wheels' macOS 14
   deployment target is what the artifacts require.
+- HTTPS in a frozen build carries its own trust store. `ssl`'s compiled-in
+  default CA path is the build machine's (`/usr/local/etc/openssl@3/cert.pem`
+  on the macOS runners), and CPython never reads the macOS Keychain, so the
+  packaged app failed every request with `CERTIFICATE_VERIFY_FAILED`.
+  [`tls.ssl_context()`](src/es_ost/tls.py) builds one context from certifi's
+  `cacert.pem` (Nuitka bundles that package data on its own) and every
+  `urlopen` in the app passes it — never call `urllib.request.urlopen` without
+  a context, or the failure comes back on whichever platform is least forgiving.
 - `--include-data-dir` copies "non-code" files only and silently skips
   executables: `assets/ffmpeg/ffmpeg` is bundled but `assets/ffmpeg/ffmpeg.exe`
   is not, which shipped a Windows build that could not export a single track.

@@ -30,7 +30,7 @@ class _FakeResponse:
 
 
 def _patch_urlopen(monkeypatch: pytest.MonkeyPatch, urls: list[str], body: str) -> None:
-    def fake_urlopen(request, timeout=None):  # noqa: ANN001 - test stub
+    def fake_urlopen(request, timeout=None, **kwargs):  # noqa: ANN001 - test stub
         urls.append(request.full_url)
         return _FakeResponse(body)
 

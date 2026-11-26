@@ -18,6 +18,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
 
+from ..tls import ssl_context
 from .cache import PageCache, cache_key
 
 BASE_URL = "https://retro.sx"
@@ -191,7 +192,7 @@ def resolve_track(rttid: str, *, timeout: float = 30.0) -> dict[str, Any]:
         headers={"Content-Type": "application/x-www-form-urlencoded", "User-Agent": USER_AGENT},
         method="POST",
     )
-    with urllib.request.urlopen(request, timeout=timeout) as response:
+    with urllib.request.urlopen(request, timeout=timeout, context=ssl_context()) as response:
         return json.loads(response.read().decode("utf-8"))
 
 
@@ -239,7 +240,9 @@ class RetrotracksClient:
         logger.debug("retrotracks: GET %s", url)
         request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
         self._last_request = time.monotonic()
-        with urllib.request.urlopen(request, timeout=self._timeout) as response:
+        with urllib.request.urlopen(
+            request, timeout=self._timeout, context=ssl_context()
+        ) as response:
             body = response.read().decode("utf-8", errors="replace")
         if use_cache:
             self._cache.put(name, body)

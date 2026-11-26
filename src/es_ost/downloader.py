@@ -27,6 +27,7 @@ from mutagen.mp3 import MP3
 
 from . import paths
 from .prep.retrotracks import USER_AGENT, resolve_track, track_url
+from .tls import ssl_context
 
 logger = logging.getLogger(__name__)
 
@@ -296,7 +297,9 @@ def download_mp3(rttid: str, dest: Path, *, timeout: float = 60.0) -> Path:
     url = track_url(info)
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     dest.parent.mkdir(parents=True, exist_ok=True)
-    with urllib.request.urlopen(request, timeout=timeout) as response, open(dest, "wb") as out:
+    with urllib.request.urlopen(
+        request, timeout=timeout, context=ssl_context()
+    ) as response, open(dest, "wb") as out:
         shutil.copyfileobj(response, out)
     logger.info("downloader: saved MP3 to %s", dest)
     return dest

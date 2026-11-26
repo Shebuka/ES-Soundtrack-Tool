@@ -257,7 +257,7 @@ def test_get_logs_which_item_it_fetches(monkeypatch, tmp_path, caplog):
     monkeypatch.setattr(
         screenscraper.urllib.request,
         "urlopen",
-        lambda request, timeout=None: _FakeResponse(SUCCESS_BODY),
+        lambda request, timeout=None, **kwargs: _FakeResponse(SUCCESS_BODY),
     )
     client = _client(tmp_path)
 
@@ -305,7 +305,7 @@ def test_get_retries_failed_header_and_caches_only_success(monkeypatch, tmp_path
     bodies = [FAILURE_BODY, SUCCESS_BODY]
     calls: list[str] = []
 
-    def fake_urlopen(request, timeout=None):
+    def fake_urlopen(request, timeout=None, **kwargs):
         calls.append(request.full_url)
         return _FakeResponse(bodies[min(len(calls) - 1, len(bodies) - 1)])
 
@@ -325,7 +325,7 @@ def test_get_raises_and_caches_nothing_for_plain_text_error(monkeypatch, tmp_pat
     monkeypatch.setattr(
         screenscraper.urllib.request,
         "urlopen",
-        lambda request, timeout=None: _FakeResponse("<html>Error 503</html>"),
+        lambda request, timeout=None, **kwargs: _FakeResponse("<html>Error 503</html>"),
     )
     monkeypatch.setattr(screenscraper.time, "sleep", lambda _seconds: None)
 
@@ -339,7 +339,7 @@ def test_get_ignores_cached_failure_entry(monkeypatch, tmp_path):
     responses = [SUCCESS_BODY, SUCCESS_BODY]
     calls: list[str] = []
 
-    def fake_urlopen(request, timeout=None):
+    def fake_urlopen(request, timeout=None, **kwargs):
         calls.append(request.full_url)
         return _FakeResponse(responses[min(len(calls) - 1, len(responses) - 1)])
 

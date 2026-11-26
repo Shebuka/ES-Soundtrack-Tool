@@ -1,3 +1,5 @@
+import io
+import urllib.request
 from pathlib import Path
 
 import pytest
@@ -115,6 +117,33 @@ def test_probe_failure_degrades_to_unknown_duration(tmp_path):
 
 def test_probe_of_a_missing_file_degrades_to_unknown_duration(tmp_path):
     assert downloader.probe_duration(tmp_path / "gone.mp3") is None
+
+
+def test_download_mp3_uses_the_bundled_ca_bundle(monkeypatch, tmp_path):
+    # A frozen interpreter has no usable default CA path, so the download must
+    # hand urlopen the context built from certifi's bundled file.
+    contexts: list[object] = []
+
+    class FakeResponse(io.BytesIO):
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *exc_info):
+            return None
+
+    def fake_urlopen(request, timeout=None, context=None):
+        contexts.append(context)
+        return FakeResponse(b"audio")
+
+    monkeypatch.setattr(
+        downloader, "resolve_track", lambda rttid, timeout=30.0: {"track_hbit": "1", "track_hash": "abc"}
+    )
+    monkeypatch.setattr(urllib.request, "urlopen", fake_urlopen)
+
+    path = downloader.download_mp3("14283", tmp_path / "14283.mp3")
+
+    assert path.read_bytes() == b"audio"
+    assert contexts == [downloader.ssl_context()]
 
 
 def test_project_setting_overrides_the_default():

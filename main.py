@@ -9,6 +9,8 @@
 # nuitka-project: --python-flag=no_docstrings
 # nuitka-project: --include-data-dir=data=data
 # nuitka-project: --include-data-dir=assets=assets
+# certifi's cacert.pem is what the app trusts (see es_ost/tls.py); Nuitka already
+# bundles that package data itself, so no --include-package-data is needed.
 # The scrape cache lives under data/ but is hundreds of MB and must never
 # ship in a release.
 # nuitka-project: --noinclude-data-files=data/.cache/*

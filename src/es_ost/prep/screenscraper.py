@@ -19,6 +19,7 @@ from pathlib import Path
 from typing import Any
 
 from es_ost.core.ranking import standard_form
+from es_ost.tls import ssl_context
 
 from .cache import PageCache, cache_key
 
@@ -323,7 +324,11 @@ class ScreenScraperClient:
             request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
             self._last_request = time.monotonic()
             try:
-                with urllib.request.urlopen(request, timeout=(self._timeout * (attempt + 1))) as response:
+                with urllib.request.urlopen(
+                    request,
+                    timeout=(self._timeout * (attempt + 1)),
+                    context=ssl_context(),
+                ) as response:
                     body = response.read().decode("utf-8")
             except urllib.error.HTTPError as exc:
                 mapped = self._map_error(exc)
