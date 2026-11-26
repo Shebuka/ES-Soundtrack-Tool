@@ -31,6 +31,8 @@ import platform
 import sys
 import tarfile
 import tempfile
+import time
+import urllib.error
 import urllib.request
 import zipfile
 from pathlib import Path
@@ -99,8 +101,33 @@ def native_target() -> str:
     raise SystemExit(f"no pinned ffmpeg build for {system}/{machine}; pass --target")
 
 
-def download(url: str, dest: Path) -> str:
-    """Download ``url`` to ``dest`` and return its SHA-256 digest."""
+RETRY_STATUS = frozenset({429, 500, 502, 503, 504})
+"""Transient failures worth another attempt: the mirrors throttle shared CI IPs."""
+
+
+def download(url: str, dest: Path, *, attempts: int = 4, base_delay: float = 30.0) -> str:
+    """Download ``url`` to ``dest`` and return its SHA-256 digest.
+
+    evermeet.cx (the macOS x86_64 mirror) answers 429 for shared GitHub runner
+    IPs, and a throttled release build is worth waiting out: ``Retry-After`` is
+    honoured when the server sends it, otherwise the delay grows linearly.
+    """
+    for attempt in range(1, attempts + 1):
+        try:
+            return _download_once(url, dest)
+        except urllib.error.HTTPError as exc:
+            if exc.code not in RETRY_STATUS or attempt == attempts:
+                raise
+            delay = base_delay * attempt
+            retry_after = exc.headers.get("Retry-After") if exc.headers else None
+            if retry_after and retry_after.strip().isdigit():
+                delay = max(delay, float(retry_after))
+            print(f"HTTP {exc.code} for {url}; retrying in {delay:.0f}s (attempt {attempt}/{attempts})")
+            time.sleep(delay)
+    raise AssertionError("unreachable")
+
+
+def _download_once(url: str, dest: Path) -> str:
     print(f"downloading {url}")
     digest = hashlib.sha256()
     with urllib.request.urlopen(url, timeout=300) as response, dest.open("wb") as out:

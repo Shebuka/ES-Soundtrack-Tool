@@ -10,7 +10,9 @@ from __future__ import annotations
 import hashlib
 import importlib.util
 import tarfile
+import urllib.error
 import zipfile
+from email.message import Message
 from pathlib import Path
 
 import pytest
@@ -124,3 +126,43 @@ def test_a_missing_member_names_the_archive(fetch_ffmpeg, tmp_path, monkeypatch)
 
     with pytest.raises(SystemExit, match="missing from"):
         fetch_ffmpeg.fetch("test-windows", tmp_path / "assets", force=False)
+
+
+def _http_error(code: int, retry_after: str | None = None) -> urllib.error.HTTPError:
+    headers = Message()
+    if retry_after:
+        headers["Retry-After"] = retry_after
+    return urllib.error.HTTPError("https://example.test/x", code, "throttled", headers, None)
+
+
+def test_a_throttled_mirror_is_retried(fetch_ffmpeg, tmp_path, monkeypatch):
+    # evermeet.cx answers 429 for shared GitHub runner IPs.
+    calls: list[str] = []
+    sleeps: list[float] = []
+
+    def flaky(url, dest):
+        calls.append(url)
+        if len(calls) < 3:
+            raise _http_error(429, retry_after="1")
+        dest.write_bytes(b"payload")
+        return hashlib.sha256(b"payload").hexdigest()
+
+    monkeypatch.setattr(fetch_ffmpeg, "_download_once", flaky)
+    monkeypatch.setattr(fetch_ffmpeg.time, "sleep", sleeps.append)
+
+    digest = fetch_ffmpeg.download("https://example.test/x", tmp_path / "x")
+
+    assert digest == hashlib.sha256(b"payload").hexdigest()
+    assert len(calls) == 3
+    assert sleeps == [30.0, 60.0]
+
+
+def test_a_missing_file_is_not_retried(fetch_ffmpeg, tmp_path, monkeypatch):
+    def missing(url, dest):
+        raise _http_error(404)
+
+    monkeypatch.setattr(fetch_ffmpeg, "_download_once", missing)
+    monkeypatch.setattr(fetch_ffmpeg.time, "sleep", lambda seconds: pytest.fail("slept"))
+
+    with pytest.raises(urllib.error.HTTPError):
+        fetch_ffmpeg.download("https://example.test/x", tmp_path / "x")
