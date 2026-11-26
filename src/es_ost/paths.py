@@ -5,12 +5,22 @@ embedded .env all live next to the executable, while a checkout keeps them at
 the repository root. Nuitka, PyInstaller and a plain interpreter each report
 that root differently, so resolve it once here instead of using __file__
 arithmetic in every module.
+
+The per-user locations (log directory, track cache) live here too, so the two
+cannot drift apart into differently named folders.
 """
 
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
+
+APP_DIR_NAME = "ES Soundtrack Tool"
+"""Per-user folder name, shared by the log and the downloaded-track cache."""
+
+APP_SLUG = "es-soundtrack-tool"
+"""Lowercase spelling for the XDG locations, which use dashes by convention."""
 
 
 def is_frozen() -> bool:
@@ -48,3 +58,41 @@ def assets_dir() -> Path:
 def ffmpeg_dir() -> Path:
     """Directory holding the bundled ffmpeg binary, if present."""
     return assets_dir() / "ffmpeg"
+
+
+def _local_appdata() -> Path:
+    """%LOCALAPPDATA%, or the conventional fallback when it is not set."""
+    return Path(os.environ.get("LOCALAPPDATA") or Path.home() / "AppData" / "Local")
+
+
+def user_log_dir() -> Path:
+    """Per-user directory for ``app.log``, created on demand.
+
+    A packaged app may be launched from / or from a read-only volume, so the log
+    cannot live in the working directory.
+    """
+    if sys.platform == "darwin":
+        base = Path.home() / "Library" / "Logs" / APP_DIR_NAME
+    elif sys.platform == "win32":
+        base = _local_appdata() / APP_DIR_NAME
+    else:
+        state = os.environ.get("XDG_STATE_HOME") or str(Path.home() / ".local" / "state")
+        base = Path(state) / APP_SLUG
+    base.mkdir(parents=True, exist_ok=True)
+    return base
+
+
+def user_cache_root() -> Path:
+    """Per-user root for the downloaded-track cache.
+
+    Windows has no cache directory of its own, so this is the same folder as the
+    log: one "ES Soundtrack Tool" to look in rather than two spellings of the
+    same name. macOS and Linux keep the conventional Logs/State versus Caches
+    split.
+    """
+    if sys.platform == "darwin":
+        return Path.home() / "Library" / "Caches" / APP_DIR_NAME
+    if sys.platform == "win32":
+        return _local_appdata() / APP_DIR_NAME
+    cache = os.environ.get("XDG_CACHE_HOME") or str(Path.home() / ".cache")
+    return Path(cache) / APP_SLUG

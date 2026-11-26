@@ -9,32 +9,22 @@ logger emits a record, and every module elsewhere uses the uniform
 from __future__ import annotations
 
 import logging
-import os
-import sys
 from logging.handlers import TimedRotatingFileHandler
 from pathlib import Path
 
+from . import paths
+
 FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 LOG_FILE = "app.log"
-APP_DIR_NAME = "ES Soundtrack Tool"
 
 
 def log_file_path() -> Path:
     """Writable per-user log location for a frozen (optimized) build.
 
-    A packaged app may be launched from / or from a read-only volume, so the
-    log cannot live in the working directory.
+    The directory comes from :func:`es_ost.paths.user_log_dir`, which the track
+    cache shares on Windows so both live in one "ES Soundtrack Tool" folder.
     """
-    if sys.platform == "darwin":
-        base = Path.home() / "Library" / "Logs" / APP_DIR_NAME
-    elif sys.platform == "win32":
-        local = os.environ.get("LOCALAPPDATA") or str(Path.home() / "AppData" / "Local")
-        base = Path(local) / APP_DIR_NAME
-    else:
-        state = os.environ.get("XDG_STATE_HOME") or str(Path.home() / ".local" / "state")
-        base = Path(state) / "es-soundtrack-tool"
-    base.mkdir(parents=True, exist_ok=True)
-    return base / LOG_FILE
+    return paths.user_log_dir() / LOG_FILE
 
 
 def configure_logging() -> None:

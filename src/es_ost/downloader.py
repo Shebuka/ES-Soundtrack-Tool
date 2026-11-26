@@ -18,7 +18,6 @@ import os
 import re
 import shutil
 import subprocess
-import sys
 import urllib.request
 from collections.abc import Mapping
 from pathlib import Path
@@ -97,22 +96,17 @@ def encoder_args(audio_format: str) -> list[str]:
 
 
 def default_cache_dir() -> Path:
-    """Platform user-cache directory for downloaded track audio.
+    """Per-user directory for downloaded track audio.
 
     ``ES_OST_CACHE_DIR`` overrides the location (useful for tests and portable
     installations). The cache lives outside the app bundle so a packaged build
-    can be read-only.
+    can be read-only, and on Windows it sits in the same "ES Soundtrack Tool"
+    folder as the log.
     """
     override = os.environ.get("ES_OST_CACHE_DIR")
     if override:
         return Path(override)
-    if sys.platform == "darwin":
-        base = Path.home() / "Library" / "Caches"
-    elif os.name == "nt":
-        base = Path(os.environ.get("LOCALAPPDATA") or Path.home() / "AppData" / "Local")
-    else:
-        base = Path(os.environ.get("XDG_CACHE_HOME") or Path.home() / ".cache")
-    return base / "es-soundtrack-tool" / "tracks"
+    return paths.user_cache_root() / "tracks"
 
 
 def track_cache_path(rttid: str, cache_dir: Path | str) -> Path:

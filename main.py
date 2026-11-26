@@ -28,6 +28,9 @@
 #     nuitka-project: --product-version=0.1.0
 #     nuitka-project: --copyright="Shebuka"
 #     nuitka-project: --windows-console-mode=disable
+#     The directory include above silently skips executables, so ffmpeg.exe has
+#     to be named explicitly or the packaged app cannot export a single track.
+#     nuitka-project: --include-data-files=assets/ffmpeg/ffmpeg.exe=assets/ffmpeg/ffmpeg.exe
 
 """Launcher for the frozen ``es-soundtrack-tool`` build.
 

@@ -63,6 +63,22 @@ way data flows from the scrapers into the shipped app. The user-facing guide is
   (`macos-15-intel` for x86_64, `macos-15` for arm64) with the same PySide6
   6.12, because GitHub retired the macOS 13 and 14 images; the wheels' macOS 14
   deployment target is what the artifacts require.
+- `--include-data-dir` copies "non-code" files only and silently skips
+  executables: `assets/ffmpeg/ffmpeg` is bundled but `assets/ffmpeg/ffmpeg.exe`
+  is not, which shipped a Windows build that could not export a single track.
+  [`main.py`](main.py) therefore names the Windows binary again with
+  `--include-data-files`, inside the `{OS} == "Windows"` block (elsewhere the
+  file does not exist and Nuitka rejects the pattern).
+- Nuitka names the standalone folder `<app>.dist`. The release workflow renames
+  it to `<app>` before archiving, so a download unpacks to one folder named
+  after the app instead of `ES Soundtrack Tool.dist`.
+- Per-user locations are resolved once in
+  [`paths.user_log_dir()`](src/es_ost/paths.py) and
+  [`paths.user_cache_root()`](src/es_ost/paths.py); do not re-derive them in a
+  module, or the two drift into differently named folders. Windows keeps the log
+  and the track cache in the same `%LOCALAPPDATA%\ES Soundtrack Tool` folder,
+  while macOS separates `Logs` and `Caches` and Linux uses `es-soundtrack-tool`
+  under `$XDG_STATE_HOME`/`$XDG_CACHE_HOME`.
 - ffmpeg comes from [`scripts/fetch_ffmpeg.py`](scripts/fetch_ffmpeg.py)
   (BtbN LGPL on Linux/Windows, evermeet.cx/OSXExperts GPL on macOS), is
   SHA-256 verified and git-ignored. Linux ships `.tar.gz` so the executable bit

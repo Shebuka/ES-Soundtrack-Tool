@@ -245,10 +245,13 @@ pyside6-deploy -c pysidedeploy.spec --no-install
 
 `pip install -e ".[build]"` installs the pinned Nuitka. The output is
 `dist/ES Soundtrack Tool.app` on macOS and a `dist/*.dist` folder on Linux and
-Windows. The build bundles `data/` without the scrape cache and
-`assets/ffmpeg`, and the frozen app writes its log to the platform log
-directory (`~/Library/Logs/ES Soundtrack Tool`, `%LOCALAPPDATA%`, or
-`$XDG_STATE_HOME`).
+Windows; the release workflow drops the `.dist` suffix before archiving, so a
+download unpacks to one folder named after the app. The build bundles `data/`
+without the scrape cache and `assets/ffmpeg`, and the frozen app keeps its log
+and its track cache in the platform user directory: `~/Library/Logs` and
+`~/Library/Caches/ES Soundtrack Tool` on macOS, one
+`%LOCALAPPDATA%\ES Soundtrack Tool` folder on Windows for both, and
+`es-soundtrack-tool` under `$XDG_STATE_HOME`/`$XDG_CACHE_HOME` on Linux.
 
 ### GitHub release
 

@@ -139,9 +139,13 @@ jobs:
         run: |
           mkdir -p release
           folder=$(ls -d dist/*.dist | head -1)
+          # Nuitka's .dist suffix is internal; the user unpacks one folder that
+          # is named after the app.
+          final="${folder%.dist}"
+          mv "$folder" "$final"
           name="es-soundtrack-tool-${VERSION#v}-${TARGET}"
           # tar keeps the executable bit and any library symlinks.
-          tar -C dist -czf "release/$name.tar.gz" "$(basename "$folder")"
+          tar -C dist -czf "release/$name.tar.gz" "$(basename "$final")"
 
       - name: Package the Windows standalone folder
         if: runner.os == 'Windows'
@@ -158,7 +162,9 @@ jobs:
           folders = sorted(p for p in Path("dist").glob("*.dist") if p.is_dir())
           if len(folders) != 1:
               raise SystemExit(f"expected one dist folder, found {folders}")
-          folder = folders[0]
+          # Nuitka's .dist suffix is internal; the user unpacks one folder that
+          # is named after the app.
+          folder = folders[0].rename(folders[0].with_suffix(""))
           base = Path("release") / f"es-soundtrack-tool-{version}-{target}"
           shutil.make_archive(str(base), "zip", root_dir=str(folder.parent), base_dir=folder.name)
           print("created", base.with_suffix(".zip"))
